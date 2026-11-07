@@ -2,10 +2,12 @@
 from __future__ import annotations
 
 import csv
+import io
 from dataclasses import dataclass, field
 from typing import Dict, Iterable, List, Optional, Sequence, Tuple
 
 from .columns import BREAKDOWNS, NUMERIC_FIELDS, build_mapping, detect_currency, parse_number
+from .csvio import read_text, sniff_delimiter
 
 Row = Dict[str, object]
 
@@ -133,30 +135,35 @@ _DIM_FIELDS = ("campaign", "adset", "ad", "start", "end", "day") + tuple(BREAKDO
 
 
 def read_csv(path: str) -> Tuple[List[Row], Dict[str, str], Optional[str]]:
-    """Read one export; rows use canonical keys. Total/summary rows are skipped."""
-    with open(path, newline="", encoding="utf-8-sig") as fh:
-        reader = csv.DictReader(fh)
-        headers = reader.fieldnames or []
-        mapping = build_mapping(list(headers))
-        if "spend" not in mapping:
-            raise ValueError(
-                f"{path}: no spend column found (expected e.g. 'Amount spent (USD)'). "
-                f"Columns: {', '.join(headers)}"
-            )
-        rows: List[Row] = []
-        for raw in reader:
-            row: Row = {}
-            for fld, header in mapping.items():
-                val = raw.get(header)
-                row[fld] = parse_number(val) if fld in NUMERIC_FIELDS else (val or "").strip()
-            if str(row.get("campaign", "x")).lower() in {"total", "results from all campaigns", "all"}:
-                continue
-            if not any(row.get(k) for k in ("spend", "impressions")) and not row.get("campaign"):
-                continue
-            row["_dims"] = tuple(d for d in BREAKDOWNS if d in mapping)
-            row["_source"] = path
-            rows.append(row)
-    return rows, mapping, detect_currency(list(headers))
+    """Read one export; rows use canonical keys. Total/summary rows are skipped.
+
+    The encoding (UTF-8 with/without BOM, UTF-16, cp1252) and the delimiter
+    (comma, tab, semicolon, pipe) are detected automatically.
+    """
+    text, _encoding = read_text(path)
+    reader = csv.DictReader(io.StringIO(text, newline=""), delimiter=sniff_delimiter(text))
+    headers = [h.strip() for h in (reader.fieldnames or [])]
+    reader.fieldnames = headers
+    mapping = build_mapping(headers)
+    if "spend" not in mapping:
+        raise ValueError(
+            f"{path}: no spend column found (expected e.g. 'Amount spent (USD)'). "
+            f"Columns: {', '.join(headers)}"
+        )
+    rows: List[Row] = []
+    for raw in reader:
+        row: Row = {}
+        for fld, header in mapping.items():
+            val = raw.get(header)
+            row[fld] = parse_number(val) if fld in NUMERIC_FIELDS else (val or "").strip()
+        if str(row.get("campaign", "x")).lower() in {"total", "results from all campaigns", "all"}:
+            continue
+        if not any(row.get(k) for k in ("spend", "impressions")) and not row.get("campaign"):
+            continue
+        row["_dims"] = tuple(d for d in BREAKDOWNS if d in mapping)
+        row["_source"] = path
+        rows.append(row)
+    return rows, mapping, detect_currency(headers)
 
 
 def _row_key(row: Row) -> Tuple:
