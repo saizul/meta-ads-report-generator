@@ -1,5 +1,7 @@
 # meta-ads-report
 
+[![CI](https://github.com/saizul/meta-ads-report-generator/actions/workflows/ci.yml/badge.svg)](https://github.com/saizul/meta-ads-report-generator/actions/workflows/ci.yml) ![Python](https://img.shields.io/badge/Python-ready-blue?logo=python&logoColor=white) ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+
 Turn Meta (Facebook) Ads Manager CSV exports into a clean, client-ready, single-file HTML report, with optional PDF and Excel output.
 
 Built by [Saizul Amin](https://saizul.com). MIT licensed.
