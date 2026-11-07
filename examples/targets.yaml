@@ -1,0 +1,14 @@
+# KPI targets and options for the sample report
+brand: Demo Studio
+logo_text: DS
+title: Meta Ads Performance Report
+currency: BDT
+theme: ocean
+targets:
+  ctr_min: 1.5
+  cpa_max: 450
+  roas_min: 3
+  frequency_max: 2.5
+thresholds:
+  frequency_warn: 3
+  ctr_warn: 1

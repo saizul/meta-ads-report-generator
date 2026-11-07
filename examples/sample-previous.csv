@@ -1,0 +1,225 @@
+Day,Campaign name,Ad set name,Ad name,Amount spent (BDT),Impressions,Reach,Link clicks,Result type,Results,Cost per result,Purchases,Purchase ROAS (return on ad spend),Reporting starts,Reporting ends
+2026-03-02,Eid Sale - Prospecting,Dhaka 18-34,Video A,646.82,3428,2943,80,Purchases,1,646.82,1,2.78,2026-03-02,2026-03-02
+2026-03-02,Eid Sale - Prospecting,Dhaka 18-34,Static B,407.0,1975,1764,50,Purchases,1,407.0,1,4.42,2026-03-02,2026-03-02
+2026-03-02,Eid Sale - Prospecting,Chattogram 18-34,Video A,806.38,4223,3621,108,Purchases,2,403.19,2,4.46,2026-03-02,2026-03-02
+2026-03-02,Eid Sale - Prospecting,Chattogram 18-34,Static B,418.95,2252,1912,58,Purchases,1,418.95,1,4.3,2026-03-02,2026-03-02
+2026-03-02,Retargeting - Cart Abandoners,Cart 7d,Video A,312.27,937,455,30,Purchases,1,312.27,1,7.05,2026-03-02,2026-03-02
+2026-03-02,Retargeting - Cart Abandoners,Cart 7d,Static B,170.14,580,266,17,Purchases,1,170.14,1,12.93,2026-03-02,2026-03-02
+2026-03-02,Retargeting - Cart Abandoners,Viewed 14d,Video A,316.08,1088,520,33,Purchases,1,316.08,1,6.96,2026-03-02,2026-03-02
+2026-03-02,Retargeting - Cart Abandoners,Viewed 14d,Static B,223.87,765,374,21,Purchases,1,223.87,1,9.83,2026-03-02,2026-03-02
+2026-03-02,Brand Awareness - Reels,Broad BD,Video A,461.56,4808,1413,34,Purchases,0,,0,,2026-03-02,2026-03-02
+2026-03-02,Brand Awareness - Reels,Broad BD,Static B,260.76,2679,757,19,Purchases,0,,0,,2026-03-02,2026-03-02
+2026-03-02,Brand Awareness - Reels,Interest - Fashion,Video A,427.11,4804,1389,36,Purchases,0,,0,,2026-03-02,2026-03-02
+2026-03-02,Brand Awareness - Reels,Interest - Fashion,Static B,242.71,2702,789,20,Purchases,0,,0,,2026-03-02,2026-03-02
+2026-03-02,Lookalike 1% - Buyers,LAL Purchasers,Video A,545.91,2169,1847,37,Purchases,0,,0,,2026-03-02,2026-03-02
+2026-03-02,Lookalike 1% - Buyers,LAL Purchasers,Static B,297.21,1308,1058,22,Purchases,0,,0,,2026-03-02,2026-03-02
+2026-03-02,Lookalike 1% - Buyers,LAL Top Spenders,Video A,499.22,1963,1577,30,Purchases,0,,0,,2026-03-02,2026-03-02
+2026-03-02,Lookalike 1% - Buyers,LAL Top Spenders,Static B,295.23,1252,1061,18,Purchases,0,,0,,2026-03-02,2026-03-02
+2026-03-03,Eid Sale - Prospecting,Dhaka 18-34,Video A,782.22,4433,3929,106,Purchases,2,391.11,2,4.6,2026-03-03,2026-03-03
+2026-03-03,Eid Sale - Prospecting,Dhaka 18-34,Static B,408.61,2184,1916,47,Purchases,1,408.61,1,4.41,2026-03-03,2026-03-03
+2026-03-03,Eid Sale - Prospecting,Chattogram 18-34,Video A,725.26,3607,3196,78,Purchases,1,725.26,1,2.48,2026-03-03,2026-03-03
+2026-03-03,Eid Sale - Prospecting,Chattogram 18-34,Static B,532.4,2979,2585,69,Purchases,1,532.4,1,3.38,2026-03-03,2026-03-03
+2026-03-03,Retargeting - Cart Abandoners,Cart 7d,Video A,309.82,1014,462,31,Purchases,1,309.82,1,7.1,2026-03-03,2026-03-03
+2026-03-03,Retargeting - Cart Abandoners,Cart 7d,Static B,198.42,633,307,20,Purchases,1,198.42,1,11.09,2026-03-03,2026-03-03
+2026-03-03,Retargeting - Cart Abandoners,Viewed 14d,Video A,339.57,1099,527,34,Purchases,1,339.57,1,6.48,2026-03-03,2026-03-03
+2026-03-03,Retargeting - Cart Abandoners,Viewed 14d,Static B,202.75,603,300,19,Purchases,1,202.75,1,10.85,2026-03-03,2026-03-03
+2026-03-03,Brand Awareness - Reels,Broad BD,Video A,420.47,4402,1268,31,Purchases,0,,0,,2026-03-03,2026-03-03
+2026-03-03,Brand Awareness - Reels,Broad BD,Static B,289.28,2812,790,17,Purchases,0,,0,,2026-03-03,2026-03-03
+2026-03-03,Brand Awareness - Reels,Interest - Fashion,Video A,374.76,3917,1167,27,Purchases,0,,0,,2026-03-03,2026-03-03
+2026-03-03,Brand Awareness - Reels,Interest - Fashion,Static B,254.83,2626,781,18,Purchases,0,,0,,2026-03-03,2026-03-03
+2026-03-03,Lookalike 1% - Buyers,LAL Purchasers,Video A,554.9,2137,1815,34,Purchases,0,,0,,2026-03-03,2026-03-03
+2026-03-03,Lookalike 1% - Buyers,LAL Purchasers,Static B,313.53,1369,1148,20,Purchases,0,,0,,2026-03-03,2026-03-03
+2026-03-03,Lookalike 1% - Buyers,LAL Top Spenders,Video A,543.48,2120,1709,32,Purchases,0,,0,,2026-03-03,2026-03-03
+2026-03-03,Lookalike 1% - Buyers,LAL Top Spenders,Static B,335.68,1478,1213,22,Purchases,0,,0,,2026-03-03,2026-03-03
+2026-03-04,Eid Sale - Prospecting,Dhaka 18-34,Video A,783.06,4089,3545,92,Purchases,1,783.06,1,2.3,2026-03-04,2026-03-04
+2026-03-04,Eid Sale - Prospecting,Dhaka 18-34,Static B,424.59,2344,2084,60,Purchases,1,424.59,1,4.24,2026-03-04,2026-03-04
+2026-03-04,Eid Sale - Prospecting,Chattogram 18-34,Video A,766.7,4126,3725,105,Purchases,2,383.35,2,4.7,2026-03-04,2026-03-04
+2026-03-04,Eid Sale - Prospecting,Chattogram 18-34,Static B,438.79,2417,2119,55,Purchases,1,438.79,1,4.1,2026-03-04,2026-03-04
+2026-03-04,Retargeting - Cart Abandoners,Cart 7d,Video A,289.85,921,461,30,Purchases,1,289.85,1,7.59,2026-03-04,2026-03-04
+2026-03-04,Retargeting - Cart Abandoners,Cart 7d,Static B,224.33,767,349,26,Purchases,1,224.33,1,9.81,2026-03-04,2026-03-04
+2026-03-04,Retargeting - Cart Abandoners,Viewed 14d,Video A,335.08,1032,483,33,Purchases,1,335.08,1,6.57,2026-03-04,2026-03-04
+2026-03-04,Retargeting - Cart Abandoners,Viewed 14d,Static B,199.13,620,308,18,Purchases,1,199.13,1,11.05,2026-03-04,2026-03-04
+2026-03-04,Brand Awareness - Reels,Broad BD,Video A,415.77,4227,1195,31,Purchases,0,,0,,2026-03-04,2026-03-04
+2026-03-04,Brand Awareness - Reels,Broad BD,Static B,285.69,3211,937,24,Purchases,0,,0,,2026-03-04,2026-03-04
+2026-03-04,Brand Awareness - Reels,Interest - Fashion,Video A,345.85,3783,1094,24,Purchases,0,,0,,2026-03-04,2026-03-04
+2026-03-04,Brand Awareness - Reels,Interest - Fashion,Static B,272.02,2823,843,21,Purchases,0,,0,,2026-03-04,2026-03-04
+2026-03-04,Lookalike 1% - Buyers,LAL Purchasers,Video A,474.91,2093,1770,33,Purchases,0,,0,,2026-03-04,2026-03-04
+2026-03-04,Lookalike 1% - Buyers,LAL Purchasers,Static B,310.95,1302,1054,22,Purchases,0,,0,,2026-03-04,2026-03-04
+2026-03-04,Lookalike 1% - Buyers,LAL Top Spenders,Video A,577.91,2525,2077,43,Purchases,0,,0,,2026-03-04,2026-03-04
+2026-03-04,Lookalike 1% - Buyers,LAL Top Spenders,Static B,379.2,1466,1218,22,Purchases,0,,0,,2026-03-04,2026-03-04
+2026-03-05,Eid Sale - Prospecting,Dhaka 18-34,Video A,685.78,3593,3269,91,Purchases,1,685.78,1,2.62,2026-03-05,2026-03-05
+2026-03-05,Eid Sale - Prospecting,Dhaka 18-34,Static B,415.61,2056,1726,45,Purchases,1,415.61,1,4.33,2026-03-05,2026-03-05
+2026-03-05,Eid Sale - Prospecting,Chattogram 18-34,Video A,614.84,3237,2857,74,Purchases,1,614.84,1,2.93,2026-03-05,2026-03-05
+2026-03-05,Eid Sale - Prospecting,Chattogram 18-34,Static B,488.63,2607,2306,60,Purchases,1,488.63,1,3.68,2026-03-05,2026-03-05
+2026-03-05,Retargeting - Cart Abandoners,Cart 7d,Video A,263.48,857,425,27,Purchases,1,263.48,1,8.35,2026-03-05,2026-03-05
+2026-03-05,Retargeting - Cart Abandoners,Cart 7d,Static B,178.91,565,272,17,Purchases,1,178.91,1,12.3,2026-03-05,2026-03-05
+2026-03-05,Retargeting - Cart Abandoners,Viewed 14d,Video A,323.83,1065,507,32,Purchases,1,323.83,1,6.79,2026-03-05,2026-03-05
+2026-03-05,Retargeting - Cart Abandoners,Viewed 14d,Static B,210.05,668,326,21,Purchases,1,210.05,1,10.47,2026-03-05,2026-03-05
+2026-03-05,Brand Awareness - Reels,Broad BD,Video A,409.35,4443,1316,28,Purchases,0,,0,,2026-03-05,2026-03-05
+2026-03-05,Brand Awareness - Reels,Broad BD,Static B,300.75,3386,967,23,Purchases,0,,0,,2026-03-05,2026-03-05
+2026-03-05,Brand Awareness - Reels,Interest - Fashion,Video A,376.1,3936,1139,25,Purchases,0,,0,,2026-03-05,2026-03-05
+2026-03-05,Brand Awareness - Reels,Interest - Fashion,Static B,301.37,3320,970,24,Purchases,0,,0,,2026-03-05,2026-03-05
+2026-03-05,Lookalike 1% - Buyers,LAL Purchasers,Video A,451.92,1909,1548,27,Purchases,0,,0,,2026-03-05,2026-03-05
+2026-03-05,Lookalike 1% - Buyers,LAL Purchasers,Static B,295.25,1149,989,16,Purchases,0,,0,,2026-03-05,2026-03-05
+2026-03-05,Lookalike 1% - Buyers,LAL Top Spenders,Video A,439.66,1932,1582,28,Purchases,0,,0,,2026-03-05,2026-03-05
+2026-03-05,Lookalike 1% - Buyers,LAL Top Spenders,Static B,376.49,1682,1469,27,Purchases,0,,0,,2026-03-05,2026-03-05
+2026-03-06,Eid Sale - Prospecting,Dhaka 18-34,Video A,758.32,3998,3392,100,Purchases,1,758.32,1,2.37,2026-03-06,2026-03-06
+2026-03-06,Eid Sale - Prospecting,Dhaka 18-34,Static B,529.01,2588,2178,59,Purchases,1,529.01,1,3.4,2026-03-06,2026-03-06
+2026-03-06,Eid Sale - Prospecting,Chattogram 18-34,Video A,647.69,3234,2742,73,Purchases,1,647.69,1,2.78,2026-03-06,2026-03-06
+2026-03-06,Eid Sale - Prospecting,Chattogram 18-34,Static B,453.08,2334,2046,54,Purchases,1,453.08,1,3.97,2026-03-06,2026-03-06
+2026-03-06,Retargeting - Cart Abandoners,Cart 7d,Video A,259.87,838,389,28,Purchases,1,259.87,1,8.47,2026-03-06,2026-03-06
+2026-03-06,Retargeting - Cart Abandoners,Cart 7d,Static B,177.84,591,280,19,Purchases,1,177.84,1,12.37,2026-03-06,2026-03-06
+2026-03-06,Retargeting - Cart Abandoners,Viewed 14d,Video A,295.55,975,483,32,Purchases,1,295.55,1,7.44,2026-03-06,2026-03-06
+2026-03-06,Retargeting - Cart Abandoners,Viewed 14d,Static B,212.74,732,341,22,Purchases,1,212.74,1,10.34,2026-03-06,2026-03-06
+2026-03-06,Brand Awareness - Reels,Broad BD,Video A,366.86,3717,1113,24,Purchases,0,,0,,2026-03-06,2026-03-06
+2026-03-06,Brand Awareness - Reels,Broad BD,Static B,248.32,2693,776,20,Purchases,0,,0,,2026-03-06,2026-03-06
+2026-03-06,Brand Awareness - Reels,Interest - Fashion,Video A,394.45,4387,1327,31,Purchases,0,,0,,2026-03-06,2026-03-06
+2026-03-06,Brand Awareness - Reels,Interest - Fashion,Static B,231.37,2427,723,16,Purchases,0,,0,,2026-03-06,2026-03-06
+2026-03-06,Lookalike 1% - Buyers,LAL Purchasers,Video A,485.61,2112,1763,31,Purchases,0,,0,,2026-03-06,2026-03-06
+2026-03-06,Lookalike 1% - Buyers,LAL Purchasers,Static B,352.16,1459,1208,24,Purchases,0,,0,,2026-03-06,2026-03-06
+2026-03-06,Lookalike 1% - Buyers,LAL Top Spenders,Video A,510.12,2200,1791,37,Purchases,0,,0,,2026-03-06,2026-03-06
+2026-03-06,Lookalike 1% - Buyers,LAL Top Spenders,Static B,389.22,1613,1315,24,Purchases,0,,0,,2026-03-06,2026-03-06
+2026-03-07,Eid Sale - Prospecting,Dhaka 18-34,Video A,738.93,4174,3745,107,Purchases,2,369.46,2,4.87,2026-03-07,2026-03-07
+2026-03-07,Eid Sale - Prospecting,Dhaka 18-34,Static B,434.11,2170,1814,54,Purchases,1,434.11,1,4.15,2026-03-07,2026-03-07
+2026-03-07,Eid Sale - Prospecting,Chattogram 18-34,Video A,650.4,3623,3079,83,Purchases,1,650.4,1,2.77,2026-03-07,2026-03-07
+2026-03-07,Eid Sale - Prospecting,Chattogram 18-34,Static B,409.86,2016,1778,51,Purchases,1,409.86,1,4.39,2026-03-07,2026-03-07
+2026-03-07,Retargeting - Cart Abandoners,Cart 7d,Video A,304.15,1008,483,28,Purchases,1,304.15,1,7.23,2026-03-07,2026-03-07
+2026-03-07,Retargeting - Cart Abandoners,Cart 7d,Static B,197.16,606,291,19,Purchases,1,197.16,1,11.16,2026-03-07,2026-03-07
+2026-03-07,Retargeting - Cart Abandoners,Viewed 14d,Video A,300.95,911,451,26,Purchases,1,300.95,1,7.31,2026-03-07,2026-03-07
+2026-03-07,Retargeting - Cart Abandoners,Viewed 14d,Static B,221.0,759,366,21,Purchases,1,221.0,1,9.95,2026-03-07,2026-03-07
+2026-03-07,Brand Awareness - Reels,Broad BD,Video A,438.1,4801,1390,32,Purchases,0,,0,,2026-03-07,2026-03-07
+2026-03-07,Brand Awareness - Reels,Broad BD,Static B,294.79,2986,863,21,Purchases,0,,0,,2026-03-07,2026-03-07
+2026-03-07,Brand Awareness - Reels,Interest - Fashion,Video A,409.39,4042,1163,28,Purchases,0,,0,,2026-03-07,2026-03-07
+2026-03-07,Brand Awareness - Reels,Interest - Fashion,Static B,284.46,3026,878,19,Purchases,0,,0,,2026-03-07,2026-03-07
+2026-03-07,Lookalike 1% - Buyers,LAL Purchasers,Video A,463.61,2052,1639,33,Purchases,0,,0,,2026-03-07,2026-03-07
+2026-03-07,Lookalike 1% - Buyers,LAL Purchasers,Static B,305.21,1237,1025,20,Purchases,0,,0,,2026-03-07,2026-03-07
+2026-03-07,Lookalike 1% - Buyers,LAL Top Spenders,Video A,535.7,2216,1929,34,Purchases,0,,0,,2026-03-07,2026-03-07
+2026-03-07,Lookalike 1% - Buyers,LAL Top Spenders,Static B,364.14,1579,1334,25,Purchases,0,,0,,2026-03-07,2026-03-07
+2026-03-08,Eid Sale - Prospecting,Dhaka 18-34,Video A,652.69,3371,2929,86,Purchases,1,652.69,1,2.76,2026-03-08,2026-03-08
+2026-03-08,Eid Sale - Prospecting,Dhaka 18-34,Static B,432.51,2374,2084,55,Purchases,1,432.51,1,4.16,2026-03-08,2026-03-08
+2026-03-08,Eid Sale - Prospecting,Chattogram 18-34,Video A,710.74,3903,3530,90,Purchases,2,355.37,2,5.07,2026-03-08,2026-03-08
+2026-03-08,Eid Sale - Prospecting,Chattogram 18-34,Static B,435.78,2146,1824,47,Purchases,1,435.78,1,4.13,2026-03-08,2026-03-08
+2026-03-08,Retargeting - Cart Abandoners,Cart 7d,Video A,268.92,824,380,25,Purchases,1,268.92,1,8.18,2026-03-08,2026-03-08
+2026-03-08,Retargeting - Cart Abandoners,Cart 7d,Static B,212.77,696,341,20,Purchases,1,212.77,1,10.34,2026-03-08,2026-03-08
+2026-03-08,Retargeting - Cart Abandoners,Viewed 14d,Video A,299.46,976,452,28,Purchases,1,299.46,1,7.35,2026-03-08,2026-03-08
+2026-03-08,Retargeting - Cart Abandoners,Viewed 14d,Static B,170.09,575,277,19,Purchases,1,170.09,1,12.93,2026-03-08,2026-03-08
+2026-03-08,Brand Awareness - Reels,Broad BD,Video A,411.39,4387,1266,31,Purchases,0,,0,,2026-03-08,2026-03-08
+2026-03-08,Brand Awareness - Reels,Broad BD,Static B,253.75,2824,812,19,Purchases,0,,0,,2026-03-08,2026-03-08
+2026-03-08,Brand Awareness - Reels,Interest - Fashion,Video A,344.54,3783,1110,27,Purchases,0,,0,,2026-03-08,2026-03-08
+2026-03-08,Brand Awareness - Reels,Interest - Fashion,Static B,266.8,2670,785,18,Purchases,0,,0,,2026-03-08,2026-03-08
+2026-03-08,Lookalike 1% - Buyers,LAL Purchasers,Video A,535.46,2211,1772,35,Purchases,1,535.46,1,3.55,2026-03-08,2026-03-08
+2026-03-08,Lookalike 1% - Buyers,LAL Purchasers,Static B,304.61,1328,1122,21,Purchases,0,,0,,2026-03-08,2026-03-08
+2026-03-08,Lookalike 1% - Buyers,LAL Top Spenders,Video A,471.97,1833,1555,29,Purchases,0,,0,,2026-03-08,2026-03-08
+2026-03-08,Lookalike 1% - Buyers,LAL Top Spenders,Static B,380.01,1632,1346,24,Purchases,0,,0,,2026-03-08,2026-03-08
+2026-03-09,Eid Sale - Prospecting,Dhaka 18-34,Video A,791.92,4312,3637,108,Purchases,2,395.96,2,4.55,2026-03-09,2026-03-09
+2026-03-09,Eid Sale - Prospecting,Dhaka 18-34,Static B,528.62,2943,2562,69,Purchases,1,528.62,1,3.41,2026-03-09,2026-03-09
+2026-03-09,Eid Sale - Prospecting,Chattogram 18-34,Video A,619.68,3022,2720,66,Purchases,1,619.68,1,2.9,2026-03-09,2026-03-09
+2026-03-09,Eid Sale - Prospecting,Chattogram 18-34,Static B,467.6,2539,2175,61,Purchases,1,467.6,1,3.85,2026-03-09,2026-03-09
+2026-03-09,Retargeting - Cart Abandoners,Cart 7d,Video A,279.59,896,440,29,Purchases,1,279.59,1,7.87,2026-03-09,2026-03-09
+2026-03-09,Retargeting - Cart Abandoners,Cart 7d,Static B,221.73,740,351,22,Purchases,1,221.73,1,9.92,2026-03-09,2026-03-09
+2026-03-09,Retargeting - Cart Abandoners,Viewed 14d,Video A,305.6,942,436,26,Purchases,1,305.6,1,7.2,2026-03-09,2026-03-09
+2026-03-09,Retargeting - Cart Abandoners,Viewed 14d,Static B,176.82,566,278,16,Purchases,0,,0,,2026-03-09,2026-03-09
+2026-03-09,Brand Awareness - Reels,Broad BD,Video A,393.31,3920,1192,24,Purchases,0,,0,,2026-03-09,2026-03-09
+2026-03-09,Brand Awareness - Reels,Broad BD,Static B,269.21,2634,781,16,Purchases,0,,0,,2026-03-09,2026-03-09
+2026-03-09,Brand Awareness - Reels,Interest - Fashion,Video A,429.72,4198,1296,28,Purchases,0,,0,,2026-03-09,2026-03-09
+2026-03-09,Brand Awareness - Reels,Interest - Fashion,Static B,307.71,3093,941,19,Purchases,0,,0,,2026-03-09,2026-03-09
+2026-03-09,Lookalike 1% - Buyers,LAL Purchasers,Video A,531.85,2161,1760,31,Purchases,0,,0,,2026-03-09,2026-03-09
+2026-03-09,Lookalike 1% - Buyers,LAL Purchasers,Static B,318.92,1390,1181,22,Purchases,0,,0,,2026-03-09,2026-03-09
+2026-03-09,Lookalike 1% - Buyers,LAL Top Spenders,Video A,474.52,1903,1610,32,Purchases,0,,0,,2026-03-09,2026-03-09
+2026-03-09,Lookalike 1% - Buyers,LAL Top Spenders,Static B,300.32,1287,1128,22,Purchases,0,,0,,2026-03-09,2026-03-09
+2026-03-10,Eid Sale - Prospecting,Dhaka 18-34,Video A,603.08,2966,2699,66,Purchases,1,603.08,1,2.98,2026-03-10,2026-03-10
+2026-03-10,Eid Sale - Prospecting,Dhaka 18-34,Static B,489.67,2742,2389,61,Purchases,1,489.67,1,3.68,2026-03-10,2026-03-10
+2026-03-10,Eid Sale - Prospecting,Chattogram 18-34,Video A,765.94,4300,3813,112,Purchases,1,765.94,1,2.35,2026-03-10,2026-03-10
+2026-03-10,Eid Sale - Prospecting,Chattogram 18-34,Static B,483.01,2723,2287,59,Purchases,1,483.01,1,3.73,2026-03-10,2026-03-10
+2026-03-10,Retargeting - Cart Abandoners,Cart 7d,Video A,262.67,832,379,24,Purchases,1,262.67,1,8.38,2026-03-10,2026-03-10
+2026-03-10,Retargeting - Cart Abandoners,Cart 7d,Static B,178.67,598,283,19,Purchases,1,178.67,1,12.31,2026-03-10,2026-03-10
+2026-03-10,Retargeting - Cart Abandoners,Viewed 14d,Video A,334.73,1056,489,32,Purchases,1,334.73,1,6.57,2026-03-10,2026-03-10
+2026-03-10,Retargeting - Cart Abandoners,Viewed 14d,Static B,196.85,611,287,17,Purchases,1,196.85,1,11.18,2026-03-10,2026-03-10
+2026-03-10,Brand Awareness - Reels,Broad BD,Video A,430.59,4450,1281,31,Purchases,0,,0,,2026-03-10,2026-03-10
+2026-03-10,Brand Awareness - Reels,Broad BD,Static B,231.36,2422,742,17,Purchases,0,,0,,2026-03-10,2026-03-10
+2026-03-10,Brand Awareness - Reels,Interest - Fashion,Video A,373.07,4142,1174,29,Purchases,0,,0,,2026-03-10,2026-03-10
+2026-03-10,Brand Awareness - Reels,Interest - Fashion,Static B,265.94,2977,887,21,Purchases,0,,0,,2026-03-10,2026-03-10
+2026-03-10,Lookalike 1% - Buyers,LAL Purchasers,Video A,447.14,1833,1517,32,Purchases,0,,0,,2026-03-10,2026-03-10
+2026-03-10,Lookalike 1% - Buyers,LAL Purchasers,Static B,302.0,1173,1023,19,Purchases,0,,0,,2026-03-10,2026-03-10
+2026-03-10,Lookalike 1% - Buyers,LAL Top Spenders,Video A,459.55,1959,1677,31,Purchases,0,,0,,2026-03-10,2026-03-10
+2026-03-10,Lookalike 1% - Buyers,LAL Top Spenders,Static B,389.94,1551,1257,25,Purchases,0,,0,,2026-03-10,2026-03-10
+2026-03-11,Eid Sale - Prospecting,Dhaka 18-34,Video A,723.98,3986,3581,96,Purchases,1,723.98,1,2.49,2026-03-11,2026-03-11
+2026-03-11,Eid Sale - Prospecting,Dhaka 18-34,Static B,408.91,2264,1880,50,Purchases,1,408.91,1,4.4,2026-03-11,2026-03-11
+2026-03-11,Eid Sale - Prospecting,Chattogram 18-34,Video A,638.66,3572,3194,78,Purchases,1,638.66,1,2.82,2026-03-11,2026-03-11
+2026-03-11,Eid Sale - Prospecting,Chattogram 18-34,Static B,514.26,2756,2310,68,Purchases,1,514.26,1,3.5,2026-03-11,2026-03-11
+2026-03-11,Retargeting - Cart Abandoners,Cart 7d,Video A,283.28,928,427,28,Purchases,1,283.28,1,7.77,2026-03-11,2026-03-11
+2026-03-11,Retargeting - Cart Abandoners,Cart 7d,Static B,203.61,689,329,20,Purchases,1,203.61,1,10.81,2026-03-11,2026-03-11
+2026-03-11,Retargeting - Cart Abandoners,Viewed 14d,Video A,317.32,954,474,28,Purchases,1,317.32,1,6.93,2026-03-11,2026-03-11
+2026-03-11,Retargeting - Cart Abandoners,Viewed 14d,Static B,201.13,673,317,20,Purchases,1,201.13,1,10.94,2026-03-11,2026-03-11
+2026-03-11,Brand Awareness - Reels,Broad BD,Video A,370.27,3804,1126,29,Purchases,0,,0,,2026-03-11,2026-03-11
+2026-03-11,Brand Awareness - Reels,Broad BD,Static B,236.32,2375,683,15,Purchases,0,,0,,2026-03-11,2026-03-11
+2026-03-11,Brand Awareness - Reels,Interest - Fashion,Video A,450.53,5111,1497,36,Purchases,0,,0,,2026-03-11,2026-03-11
+2026-03-11,Brand Awareness - Reels,Interest - Fashion,Static B,263.42,2971,875,22,Purchases,0,,0,,2026-03-11,2026-03-11
+2026-03-11,Lookalike 1% - Buyers,LAL Purchasers,Video A,555.09,2278,1938,40,Purchases,1,555.09,1,3.42,2026-03-11,2026-03-11
+2026-03-11,Lookalike 1% - Buyers,LAL Purchasers,Static B,386.55,1529,1300,22,Purchases,0,,0,,2026-03-11,2026-03-11
+2026-03-11,Lookalike 1% - Buyers,LAL Top Spenders,Video A,515.99,2197,1872,31,Purchases,0,,0,,2026-03-11,2026-03-11
+2026-03-11,Lookalike 1% - Buyers,LAL Top Spenders,Static B,335.06,1361,1158,22,Purchases,0,,0,,2026-03-11,2026-03-11
+2026-03-12,Eid Sale - Prospecting,Dhaka 18-34,Video A,618.47,3150,2837,74,Purchases,1,618.47,1,2.91,2026-03-12,2026-03-12
+2026-03-12,Eid Sale - Prospecting,Dhaka 18-34,Static B,504.89,2742,2297,72,Purchases,1,504.89,1,3.57,2026-03-12,2026-03-12
+2026-03-12,Eid Sale - Prospecting,Chattogram 18-34,Video A,675.17,3360,2914,77,Purchases,1,675.17,1,2.67,2026-03-12,2026-03-12
+2026-03-12,Eid Sale - Prospecting,Chattogram 18-34,Static B,473.91,2438,2127,62,Purchases,1,473.91,1,3.8,2026-03-12,2026-03-12
+2026-03-12,Retargeting - Cart Abandoners,Cart 7d,Video A,331.46,1121,517,33,Purchases,1,331.46,1,6.64,2026-03-12,2026-03-12
+2026-03-12,Retargeting - Cart Abandoners,Cart 7d,Static B,168.9,512,252,15,Purchases,1,168.9,1,13.03,2026-03-12,2026-03-12
+2026-03-12,Retargeting - Cart Abandoners,Viewed 14d,Video A,256.93,789,358,25,Purchases,1,256.93,1,8.56,2026-03-12,2026-03-12
+2026-03-12,Retargeting - Cart Abandoners,Viewed 14d,Static B,214.96,746,373,20,Purchases,1,214.96,1,10.23,2026-03-12,2026-03-12
+2026-03-12,Brand Awareness - Reels,Broad BD,Video A,396.78,4068,1247,25,Purchases,0,,0,,2026-03-12,2026-03-12
+2026-03-12,Brand Awareness - Reels,Broad BD,Static B,254.74,2573,775,19,Purchases,0,,0,,2026-03-12,2026-03-12
+2026-03-12,Brand Awareness - Reels,Interest - Fashion,Video A,349.6,3638,1027,26,Purchases,0,,0,,2026-03-12,2026-03-12
+2026-03-12,Brand Awareness - Reels,Interest - Fashion,Static B,294.99,2979,851,19,Purchases,0,,0,,2026-03-12,2026-03-12
+2026-03-12,Lookalike 1% - Buyers,LAL Purchasers,Video A,514.36,2256,1944,36,Purchases,0,,0,,2026-03-12,2026-03-12
+2026-03-12,Lookalike 1% - Buyers,LAL Purchasers,Static B,292.45,1246,1041,21,Purchases,0,,0,,2026-03-12,2026-03-12
+2026-03-12,Lookalike 1% - Buyers,LAL Top Spenders,Video A,538.47,2397,2014,40,Purchases,1,538.47,1,3.53,2026-03-12,2026-03-12
+2026-03-12,Lookalike 1% - Buyers,LAL Top Spenders,Static B,343.89,1357,1077,20,Purchases,0,,0,,2026-03-12,2026-03-12
+2026-03-13,Eid Sale - Prospecting,Dhaka 18-34,Video A,711.91,3691,3115,85,Purchases,1,711.91,1,2.53,2026-03-13,2026-03-13
+2026-03-13,Eid Sale - Prospecting,Dhaka 18-34,Static B,461.33,2606,2261,58,Purchases,1,461.33,1,3.9,2026-03-13,2026-03-13
+2026-03-13,Eid Sale - Prospecting,Chattogram 18-34,Video A,683.44,3799,3266,97,Purchases,2,341.72,2,5.27,2026-03-13,2026-03-13
+2026-03-13,Eid Sale - Prospecting,Chattogram 18-34,Static B,402.1,2141,1903,51,Purchases,1,402.1,1,4.48,2026-03-13,2026-03-13
+2026-03-13,Retargeting - Cart Abandoners,Cart 7d,Video A,315.66,1085,523,30,Purchases,1,315.66,1,6.97,2026-03-13,2026-03-13
+2026-03-13,Retargeting - Cart Abandoners,Cart 7d,Static B,198.88,682,334,23,Purchases,1,198.88,1,11.06,2026-03-13,2026-03-13
+2026-03-13,Retargeting - Cart Abandoners,Viewed 14d,Video A,334.49,1023,496,30,Purchases,1,334.49,1,6.58,2026-03-13,2026-03-13
+2026-03-13,Retargeting - Cart Abandoners,Viewed 14d,Static B,184.39,637,306,21,Purchases,1,184.39,1,11.93,2026-03-13,2026-03-13
+2026-03-13,Brand Awareness - Reels,Broad BD,Video A,378.51,3749,1151,24,Purchases,0,,0,,2026-03-13,2026-03-13
+2026-03-13,Brand Awareness - Reels,Broad BD,Static B,248.11,2486,713,15,Purchases,0,,0,,2026-03-13,2026-03-13
+2026-03-13,Brand Awareness - Reels,Interest - Fashion,Video A,446.1,4794,1441,35,Purchases,0,,0,,2026-03-13,2026-03-13
+2026-03-13,Brand Awareness - Reels,Interest - Fashion,Static B,307.35,3012,906,20,Purchases,0,,0,,2026-03-13,2026-03-13
+2026-03-13,Lookalike 1% - Buyers,LAL Purchasers,Video A,520.1,2010,1736,30,Purchases,0,,0,,2026-03-13,2026-03-13
+2026-03-13,Lookalike 1% - Buyers,LAL Purchasers,Static B,383.6,1515,1244,26,Purchases,0,,0,,2026-03-13,2026-03-13
+2026-03-13,Lookalike 1% - Buyers,LAL Top Spenders,Video A,457.94,1772,1523,29,Purchases,0,,0,,2026-03-13,2026-03-13
+2026-03-13,Lookalike 1% - Buyers,LAL Top Spenders,Static B,375.11,1656,1375,24,Purchases,0,,0,,2026-03-13,2026-03-13
+2026-03-14,Eid Sale - Prospecting,Dhaka 18-34,Video A,677.23,3340,2969,78,Purchases,1,677.23,1,2.66,2026-03-14,2026-03-14
+2026-03-14,Eid Sale - Prospecting,Dhaka 18-34,Static B,416.24,2066,1724,45,Purchases,1,416.24,1,4.32,2026-03-14,2026-03-14
+2026-03-14,Eid Sale - Prospecting,Chattogram 18-34,Video A,612.91,3066,2543,80,Purchases,2,306.45,2,5.87,2026-03-14,2026-03-14
+2026-03-14,Eid Sale - Prospecting,Chattogram 18-34,Static B,432.33,2222,1893,58,Purchases,1,432.33,1,4.16,2026-03-14,2026-03-14
+2026-03-14,Retargeting - Cart Abandoners,Cart 7d,Video A,280.36,835,386,25,Purchases,1,280.36,1,7.85,2026-03-14,2026-03-14
+2026-03-14,Retargeting - Cart Abandoners,Cart 7d,Static B,202.09,648,307,20,Purchases,1,202.09,1,10.89,2026-03-14,2026-03-14
+2026-03-14,Retargeting - Cart Abandoners,Viewed 14d,Video A,326.67,1003,461,31,Purchases,1,326.67,1,6.73,2026-03-14,2026-03-14
+2026-03-14,Retargeting - Cart Abandoners,Viewed 14d,Static B,178.96,620,302,20,Purchases,1,178.96,1,12.29,2026-03-14,2026-03-14
+2026-03-14,Brand Awareness - Reels,Broad BD,Video A,368.84,3604,1021,27,Purchases,0,,0,,2026-03-14,2026-03-14
+2026-03-14,Brand Awareness - Reels,Broad BD,Static B,238.78,2317,649,17,Purchases,0,,0,,2026-03-14,2026-03-14
+2026-03-14,Brand Awareness - Reels,Interest - Fashion,Video A,427.53,4518,1323,33,Purchases,0,,0,,2026-03-14,2026-03-14
+2026-03-14,Brand Awareness - Reels,Interest - Fashion,Static B,265.24,2633,773,18,Purchases,0,,0,,2026-03-14,2026-03-14
+2026-03-14,Lookalike 1% - Buyers,LAL Purchasers,Video A,493.53,1996,1587,31,Purchases,0,,0,,2026-03-14,2026-03-14
+2026-03-14,Lookalike 1% - Buyers,LAL Purchasers,Static B,386.75,1704,1355,29,Purchases,0,,0,,2026-03-14,2026-03-14
+2026-03-14,Lookalike 1% - Buyers,LAL Top Spenders,Video A,477.57,1869,1582,29,Purchases,0,,0,,2026-03-14,2026-03-14
+2026-03-14,Lookalike 1% - Buyers,LAL Top Spenders,Static B,356.91,1435,1198,25,Purchases,0,,0,,2026-03-14,2026-03-14
+2026-03-15,Eid Sale - Prospecting,Dhaka 18-34,Video A,708.62,3953,3457,104,Purchases,2,354.31,2,5.08,2026-03-15,2026-03-15
+2026-03-15,Eid Sale - Prospecting,Dhaka 18-34,Static B,484.54,2374,2008,56,Purchases,1,484.54,1,3.71,2026-03-15,2026-03-15
+2026-03-15,Eid Sale - Prospecting,Chattogram 18-34,Video A,609.2,3388,2985,79,Purchases,2,304.6,2,5.91,2026-03-15,2026-03-15
+2026-03-15,Eid Sale - Prospecting,Chattogram 18-34,Static B,427.94,2269,1903,58,Purchases,1,427.94,1,4.21,2026-03-15,2026-03-15
+2026-03-15,Retargeting - Cart Abandoners,Cart 7d,Video A,315.83,996,479,29,Purchases,1,315.83,1,6.97,2026-03-15,2026-03-15
+2026-03-15,Retargeting - Cart Abandoners,Cart 7d,Static B,190.43,629,310,20,Purchases,1,190.43,1,11.55,2026-03-15,2026-03-15
+2026-03-15,Retargeting - Cart Abandoners,Viewed 14d,Video A,272.04,859,426,27,Purchases,1,272.04,1,8.09,2026-03-15,2026-03-15
+2026-03-15,Retargeting - Cart Abandoners,Viewed 14d,Static B,187.35,583,266,16,Purchases,1,187.35,1,11.74,2026-03-15,2026-03-15
+2026-03-15,Brand Awareness - Reels,Broad BD,Video A,409.17,4470,1262,33,Purchases,0,,0,,2026-03-15,2026-03-15
+2026-03-15,Brand Awareness - Reels,Broad BD,Static B,265.25,2873,855,18,Purchases,0,,0,,2026-03-15,2026-03-15
+2026-03-15,Brand Awareness - Reels,Interest - Fashion,Video A,402.01,4495,1280,30,Purchases,0,,0,,2026-03-15,2026-03-15
+2026-03-15,Brand Awareness - Reels,Interest - Fashion,Static B,278.01,2731,844,17,Purchases,0,,0,,2026-03-15,2026-03-15
+2026-03-15,Lookalike 1% - Buyers,LAL Purchasers,Video A,564.16,2231,1856,34,Purchases,0,,0,,2026-03-15,2026-03-15
+2026-03-15,Lookalike 1% - Buyers,LAL Purchasers,Static B,335.06,1424,1236,23,Purchases,0,,0,,2026-03-15,2026-03-15
+2026-03-15,Lookalike 1% - Buyers,LAL Top Spenders,Video A,586.74,2519,2047,36,Purchases,0,,0,,2026-03-15,2026-03-15
+2026-03-15,Lookalike 1% - Buyers,LAL Top Spenders,Static B,392.46,1521,1277,21,Purchases,0,,0,,2026-03-15,2026-03-15

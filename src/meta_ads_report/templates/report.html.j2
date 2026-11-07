@@ -1,0 +1,120 @@
+{% macro delta(d) -%}
+{% if d %}<span class="delta {{ 'up' if d.good else ('down' if d.good == false else '') }}">{{ '%+.1f'|format(d.pct) }}%</span>{% endif %}
+{%- endmacro %}
+{% macro mark(checks, key) -%}
+{% if key in checks %}{% if checks[key] is none %}{% elif checks[key] %} <span class="pf pass" title="meets target">&#10003;</span>{% else %} <span class="pf fail" title="misses target">&#10007;</span>{% endif %}{% endif %}
+{%- endmacro %}
+{% macro table(items, cur, with_parent=false, roas=false) %}
+<div class="scroll"><table>
+<thead><tr><th>Name</th>{% if with_parent %}<th>Parent</th>{% endif %}<th class="n">Spend ({{ cur }})</th><th class="n">Impr.</th><th class="n">Reach</th><th class="n">Clicks</th><th class="n">CTR</th><th class="n">CPC</th><th class="n">CPM</th><th class="n">Freq.</th><th class="n">Results</th><th class="n">Cost/result</th>{% if roas %}<th class="n">ROAS</th>{% endif %}</tr></thead>
+<tbody>
+{% for s in items %}
+<tr><td>{{ s.name }}</td>{% if with_parent %}<td class="muted">{{ s.parent }}</td>{% endif %}<td class="n">{{ s.spend|money }}</td><td class="n">{{ s.impressions|num }}</td><td class="n">{{ s.reach|num }}</td><td class="n">{{ s.clicks|num }}</td><td class="n">{{ s.ctr|pct }}</td><td class="n">{{ s.cpc|money }}</td><td class="n">{{ s.cpm|money }}</td><td class="n">{{ s.frequency|ratio }}</td><td class="n">{{ (s.results or s.purchases)|num }}</td><td class="n">{{ s.cpa|money }}</td>{% if roas %}<td class="n">{{ s.roas|x }}</td>{% endif %}</tr>
+{% endfor %}
+</tbody></table></div>
+{% endmacro %}
+<!DOCTYPE html>
+<html lang="en" data-theme="{{ cfg.theme }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ cfg.title }}{% if cfg.brand %} - {{ cfg.brand }}{% endif %}</title>
+<style>
+:root{--bg:#f5f6fa;--card:#fff;--text:#1d2433;--muted:#667085;--line:#e4e7ee;--accent:#2563eb;--accent2:#16a34a;--good:#15803d;--bad:#b91c1c;--warnbg:#fff4e5;--goodbg:#e8f7ee;--infobg:#eaf1ff}
+[data-theme=dark]{--bg:#0f1420;--card:#171e2e;--text:#e6e9f2;--muted:#98a2b3;--line:#27304a;--accent:#60a5fa;--accent2:#4ade80;--good:#4ade80;--bad:#f87171;--warnbg:#3a2a12;--goodbg:#12301f;--infobg:#172544}
+[data-theme=ocean]{--bg:#eaf6f8;--card:#fff;--text:#0b2e3a;--muted:#4f7480;--line:#cfe5ea;--accent:#0e7490;--accent2:#d97706;--good:#0f766e;--bad:#be123c;--warnbg:#fff1e0;--goodbg:#dcf5ef;--infobg:#e0f2f7}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:28px 18px 60px}
+header{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.logo{width:46px;height:46px;border-radius:12px;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:700;font-size:18px}
+h1{font-size:24px;margin:0}h2{font-size:18px;margin:34px 0 12px}h3{font-size:15px;margin:18px 0 8px}
+.sub{color:var(--muted);font-size:13px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.kpi .l{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.04em}.kpi .v{font-size:22px;font-weight:650;margin-top:2px}
+.delta{font-size:12px;margin-left:6px;color:var(--muted)}.delta.up{color:var(--good)}.delta.down{color:var(--bad)}
+.badges{display:flex;flex-wrap:wrap;gap:8px}
+.badge{border-radius:999px;padding:5px 12px;font-size:13px;border:1px solid var(--line);background:var(--card)}
+.badge.pass{background:var(--goodbg);color:var(--good);border-color:var(--good)}.badge.fail{background:var(--warnbg);color:var(--bad);border-color:var(--bad)}.badge.na{color:var(--muted)}
+.pf.pass{color:var(--good)}.pf.fail{color:var(--bad)}
+.scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:13px}th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
+th{color:var(--muted);font-weight:600}.n{text-align:right;font-variant-numeric:tabular-nums}.muted{color:var(--muted)}
+.ins{list-style:none;margin:0;padding:0;display:grid;gap:8px}.ins li{padding:10px 14px;border-radius:10px;border-left:4px solid}
+.ins .warn{background:var(--warnbg);border-color:var(--bad)}.ins .good{background:var(--goodbg);border-color:var(--good)}.ins .info{background:var(--infobg);border-color:var(--accent)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px}
+.chart{width:100%;height:auto}.chart-label{fill:var(--muted);font-size:11px}.chart-value{fill:var(--text);font-size:11px}.chart-title{fill:var(--text);font-size:13px;font-weight:600}.grid{stroke:var(--line);stroke-width:1}
+ol.rank{margin:0;padding-left:20px}
+footer{margin-top:40px;color:var(--muted);font-size:12px;text-align:center}
+@media print{body{background:#fff}.card{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+{% if cfg.logo_text or cfg.brand %}<div class="logo">{{ (cfg.logo_text or cfg.brand)[:3] }}</div>{% endif %}
+<div><h1>{{ cfg.title }}</h1>
+<div class="sub">{% if cfg.brand %}{{ cfg.brand }} &middot; {% endif %}{% if period %}{{ period }} &middot; {% endif %}Currency: {{ cur }}{% if prev_period %} &middot; compared with {{ prev_period }}{% endif %}</div></div>
+</header>
+
+<section class="kpis">
+{% for k in kpis %}<div class="card kpi"><div class="l">{{ k.label }}</div><div class="v">{{ k.value }}{{ delta(k.delta) }}</div></div>
+{% endfor %}
+</section>
+
+{% if badges %}
+<h2>KPI targets</h2>
+<div class="badges">
+{% for b in badges %}<span class="badge {{ 'na' if b.passed is none else ('pass' if b.passed else 'fail') }}">{{ '&#10003;'|safe if b.passed else ('&#10007;'|safe if b.passed == false else '?') }} {{ b.label }}: {{ b.actual_s }} (target {{ b.op }} {{ b.target_s }})</span>
+{% endfor %}
+</div>
+{% endif %}
+
+<h2>Insights</h2>
+<ul class="ins">
+{% for i in insights %}<li class="{{ i.level }}">{{ i.text }}</li>
+{% endfor %}
+</ul>
+
+{% if charts.spend %}
+<h2>Spend vs results</h2>
+<div class="grid2"><div class="card">{{ charts.spend|safe }}</div><div class="card">{{ charts.results|safe }}</div></div>
+{% endif %}
+{% if charts.daily %}<div class="card" style="margin-top:14px">{{ charts.daily|safe }}</div>{% endif %}
+
+{% if camp_rows %}
+<h2>Campaigns</h2>
+<div class="card scroll"><table>
+<thead><tr><th>Campaign</th><th class="n">Spend ({{ cur }})</th><th class="n">Impr.</th><th class="n">Reach</th><th class="n">Clicks</th><th class="n">CTR</th><th class="n">CPC</th><th class="n">CPM</th><th class="n">Freq.</th><th class="n">Results</th><th class="n">Cost/result</th>{% if has_roas %}<th class="n">ROAS</th>{% endif %}</tr></thead>
+<tbody>
+{% for r in camp_rows %}{% set s = r.s %}
+<tr><td>{{ s.name }}</td><td class="n">{{ s.spend|money }}{{ delta(r.delta_spend) }}</td><td class="n">{{ s.impressions|num }}</td><td class="n">{{ s.reach|num }}</td><td class="n">{{ s.clicks|num }}</td><td class="n">{{ s.ctr|pct }}{{ mark(r.checks, 'ctr') }}</td><td class="n">{{ s.cpc|money }}{{ mark(r.checks, 'cpc') }}</td><td class="n">{{ s.cpm|money }}{{ mark(r.checks, 'cpm') }}</td><td class="n">{{ s.frequency|ratio }}{{ mark(r.checks, 'frequency') }}</td><td class="n">{{ (s.results or s.purchases)|num }}</td><td class="n">{{ s.cpa|money }}{{ delta(r.delta_cpa) }}{{ mark(r.checks, 'cpa') }}</td>{% if has_roas %}<td class="n">{{ s.roas|x }}{{ mark(r.checks, 'roas') }}</td>{% endif %}</tr>
+{% endfor %}
+<tr><th>Total</th><th class="n">{{ rep.total.spend|money }}</th><th class="n">{{ rep.total.impressions|num }}</th><th class="n">{{ rep.total.reach|num }}</th><th class="n">{{ rep.total.clicks|num }}</th><th class="n">{{ rep.total.ctr|pct }}</th><th class="n">{{ rep.total.cpc|money }}</th><th class="n">{{ rep.total.cpm|money }}</th><th class="n">{{ rep.total.frequency|ratio }}</th><th class="n">{{ (rep.total.results or rep.total.purchases)|num }}</th><th class="n">{{ rep.total.cpa|money }}</th>{% if has_roas %}<th class="n">{{ rep.total.roas|x }}</th>{% endif %}</tr>
+</tbody></table></div>
+<div class="sub" style="margin-top:6px">Reach is summed across rows and may overlap between campaigns, so total frequency is an approximation.</div>
+{% endif %}
+
+{% if top or bottom %}
+<h2>Top and bottom campaigns (cost per result)</h2>
+<div class="grid2">
+<div class="card"><h3>Best performers</h3><ol class="rank">{% for s in top %}<li>{{ s.name }} &mdash; {{ cur }} {{ s.cpa|money }}</li>{% endfor %}</ol></div>
+<div class="card"><h3>Needs attention</h3><ol class="rank">{% for s in bottom %}<li>{{ s.name }} &mdash; {{ cur }} {{ s.cpa|money }}</li>{% else %}<li class="muted">Not enough campaigns to rank.</li>{% endfor %}</ol></div>
+</div>
+{% endif %}
+
+{% if rep.adsets %}<h2>Ad sets</h2><div class="card">{{ table(rep.adsets, cur, true, has_roas) }}</div>{% endif %}
+{% if rep.ads %}<h2>Ads</h2>
+{% if ad_top %}<div class="grid2" style="margin-bottom:14px">
+<div class="card"><h3>Best ads</h3><ol class="rank">{% for s in ad_top %}<li>{{ s.name }} <span class="muted">({{ s.parent }})</span> &mdash; {{ cur }} {{ s.cpa|money }}</li>{% endfor %}</ol></div>
+<div class="card"><h3>Weakest ads</h3><ol class="rank">{% for s in ad_bottom %}<li>{{ s.name }} <span class="muted">({{ s.parent }})</span> &mdash; {{ cur }} {{ s.cpa|money }}</li>{% else %}<li class="muted">Not enough ads to rank.</li>{% endfor %}</ol></div></div>{% endif %}
+<div class="card">{{ table(rep.ads, cur, true, has_roas) }}</div>{% endif %}
+
+{% for b in breakdowns %}
+<h2>Breakdown: {{ b.title }}</h2>
+<div class="card" style="max-width:640px;margin-bottom:12px">{{ b.chart|safe }}</div><div class="card">{{ table(b.rows, cur, false, has_roas) }}</div>
+{% endfor %}
+
+<footer>Generated {{ generated }} with meta-ads-report {{ version }}{% if rep.sources|length > 1 %} &middot; {{ rep.sources|length }} files merged{% if rep.duplicates_dropped %}, {{ rep.duplicates_dropped }} duplicate rows skipped{% endif %}{% endif %}</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "meta-ads-report"
+version = "0.1.0"
+description = "Turn a Meta (Facebook) Ads Manager CSV export into a clean, client-ready single-file HTML report."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Saizul Amin", email = "hello@saizul.com" }]
+keywords = ["meta-ads", "facebook-ads", "reporting", "csv", "html-report", "marketing"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Office/Business",
+]
+dependencies = ["Jinja2>=3.0", "PyYAML>=5.4"]
+
+[project.optional-dependencies]
+xlsx = ["openpyxl>=3.0"]
+pdf = ["weasyprint>=60"]
+dev = ["pytest>=7", "ruff>=0.4", "openpyxl>=3.0"]
+
+[project.urls]
+Homepage = "https://saizul.com"
+
+[project.scripts]
+meta-ads-report = "meta_ads_report.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+meta_ads_report = ["templates/*.j2"]
+
+[tool.ruff]
+line-length = 110
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

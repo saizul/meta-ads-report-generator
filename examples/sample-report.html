@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="ocean">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meta Ads Performance Report - Demo Studio</title>
+<style>
+:root{--bg:#f5f6fa;--card:#fff;--text:#1d2433;--muted:#667085;--line:#e4e7ee;--accent:#2563eb;--accent2:#16a34a;--good:#15803d;--bad:#b91c1c;--warnbg:#fff4e5;--goodbg:#e8f7ee;--infobg:#eaf1ff}
+[data-theme=dark]{--bg:#0f1420;--card:#171e2e;--text:#e6e9f2;--muted:#98a2b3;--line:#27304a;--accent:#60a5fa;--accent2:#4ade80;--good:#4ade80;--bad:#f87171;--warnbg:#3a2a12;--goodbg:#12301f;--infobg:#172544}
+[data-theme=ocean]{--bg:#eaf6f8;--card:#fff;--text:#0b2e3a;--muted:#4f7480;--line:#cfe5ea;--accent:#0e7490;--accent2:#d97706;--good:#0f766e;--bad:#be123c;--warnbg:#fff1e0;--goodbg:#dcf5ef;--infobg:#e0f2f7}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:28px 18px 60px}
+header{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.logo{width:46px;height:46px;border-radius:12px;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:700;font-size:18px}
+h1{font-size:24px;margin:0}h2{font-size:18px;margin:34px 0 12px}h3{font-size:15px;margin:18px 0 8px}
+.sub{color:var(--muted);font-size:13px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.kpi .l{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.04em}.kpi .v{font-size:22px;font-weight:650;margin-top:2px}
+.delta{font-size:12px;margin-left:6px;color:var(--muted)}.delta.up{color:var(--good)}.delta.down{color:var(--bad)}
+.badges{display:flex;flex-wrap:wrap;gap:8px}
+.badge{border-radius:999px;padding:5px 12px;font-size:13px;border:1px solid var(--line);background:var(--card)}
+.badge.pass{background:var(--goodbg);color:var(--good);border-color:var(--good)}.badge.fail{background:var(--warnbg);color:var(--bad);border-color:var(--bad)}.badge.na{color:var(--muted)}
+.pf.pass{color:var(--good)}.pf.fail{color:var(--bad)}
+.scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:13px}th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
+th{color:var(--muted);font-weight:600}.n{text-align:right;font-variant-numeric:tabular-nums}.muted{color:var(--muted)}
+.ins{list-style:none;margin:0;padding:0;display:grid;gap:8px}.ins li{padding:10px 14px;border-radius:10px;border-left:4px solid}
+.ins .warn{background:var(--warnbg);border-color:var(--bad)}.ins .good{background:var(--goodbg);border-color:var(--good)}.ins .info{background:var(--infobg);border-color:var(--accent)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px}
+.chart{width:100%;height:auto}.chart-label{fill:var(--muted);font-size:11px}.chart-value{fill:var(--text);font-size:11px}.chart-title{fill:var(--text);font-size:13px;font-weight:600}.grid{stroke:var(--line);stroke-width:1}
+ol.rank{margin:0;padding-left:20px}
+footer{margin-top:40px;color:var(--muted);font-size:12px;text-align:center}
+@media print{body{background:#fff}.card{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<div class="logo">DS</div><div><h1>Meta Ads Performance Report</h1>
+<div class="sub">Demo Studio &middot; 2026-03-16 to 2026-03-29 &middot; Currency: BDT &middot; compared with 2026-03-02 to 2026-03-15</div></div>
+</header>
+
+<section class="kpis">
+<div class="card kpi"><div class="l">Spend</div><div class="v">BDT 99,933.40<span class="delta up">+12.7%</span></div></div>
+<div class="card kpi"><div class="l">Results</div><div class="v">138<span class="delta up">+11.3%</span></div></div>
+<div class="card kpi"><div class="l">Cost / result</div><div class="v">BDT 724.16<span class="delta down">+1.3%</span></div></div>
+<div class="card kpi"><div class="l">CTR</div><div class="v">1.62%<span class="delta down">-0.6%</span></div></div>
+<div class="card kpi"><div class="l">CPC</div><div class="v">BDT 10.64<span class="delta ">+0.0%</span></div></div>
+<div class="card kpi"><div class="l">CPM</div><div class="v">BDT 172.53<span class="delta up">-0.6%</span></div></div>
+<div class="card kpi"><div class="l">Frequency</div><div class="v">1.68<span class="delta down">+2.1%</span></div></div>
+<div class="card kpi"><div class="l">ROAS</div><div class="v">2.72x<span class="delta down">-1.8%</span></div></div>
+</section>
+
+<h2>KPI targets</h2>
+<div class="badges">
+<span class="badge pass">&#10003; CTR: 1.62% (target &gt;= 1.50%)</span>
+<span class="badge fail">&#10007; Cost per result: BDT 724.16 (target &lt;= BDT 450.00)</span>
+<span class="badge fail">&#10007; ROAS: 2.72x (target &gt;= 3.00x)</span>
+<span class="badge pass">&#10003; Frequency: 1.68 (target &lt;= 2.50)</span>
+</div>
+
+<h2>Insights</h2>
+<ul class="ins">
+<li class="warn">Campaign &#39;Lookalike 1% - Buyers&#39; ROAS is 0.73x (below break-even).</li>
+<li class="warn">Campaign &#39;Lookalike 1% - Buyers&#39; costs BDT 2,609.83 per result, over 2x the account average (BDT 724.16).</li>
+<li class="warn">Campaign &#39;Brand Awareness - Reels&#39; spent BDT 21,393.11 with no results. Pause or rework it.</li>
+<li class="good">Best efficiency: &#39;Retargeting - Cart Abandoners&#39; at BDT 267.92 per result. Shift budget toward it if volume holds.</li>
+</ul>
+
+<h2>Spend vs results</h2>
+<div class="grid2"><div class="card"><svg viewBox="0 0 610 154" role="img" aria-label="Spend by campaign (BDT)" xmlns="http://www.w3.org/2000/svg" class="chart"><text x="0" y="16" class="chart-title">Spend by campaign (BDT)</text><text x="182" y="47" text-anchor="end" class="chart-label">Eid Sale - Prospecting</text><rect x="190" y="35" width="330.0" height="16" rx="3" fill="var(--accent)"/><text x="526.0" y="47" class="chart-value">37,439</text><text x="182" y="75" text-anchor="end" class="chart-label">Lookalike 1% - Buyers</text><rect x="190" y="63" width="230.0" height="16" rx="3" fill="var(--accent)"/><text x="426.0" y="75" class="chart-value">26,098</text><text x="182" y="103" text-anchor="end" class="chart-label">Brand Awareness - Reels</text><rect x="190" y="91" width="188.6" height="16" rx="3" fill="var(--accent)"/><text x="384.6" y="103" class="chart-value">21,393</text><text x="182" y="131" text-anchor="end" class="chart-label">Retargeting - Cart Abando…</text><rect x="190" y="119" width="132.2" height="16" rx="3" fill="var(--accent)"/><text x="328.2" y="131" class="chart-value">15,003</text></svg></div><div class="card"><svg viewBox="0 0 610 154" role="img" aria-label="Results by campaign" xmlns="http://www.w3.org/2000/svg" class="chart"><text x="0" y="16" class="chart-title">Results by campaign</text><text x="182" y="47" text-anchor="end" class="chart-label">Eid Sale - Prospecting</text><rect x="190" y="35" width="330.0" height="16" rx="3" fill="var(--accent2)"/><text x="526.0" y="47" class="chart-value">72</text><text x="182" y="75" text-anchor="end" class="chart-label">Lookalike 1% - Buyers</text><rect x="190" y="63" width="45.8" height="16" rx="3" fill="var(--accent2)"/><text x="241.8" y="75" class="chart-value">10</text><text x="182" y="103" text-anchor="end" class="chart-label">Brand Awareness - Reels</text><rect x="190" y="91" width="0.0" height="16" rx="3" fill="var(--accent2)"/><text x="196.0" y="103" class="chart-value">0</text><text x="182" y="131" text-anchor="end" class="chart-label">Retargeting - Cart Abando…</text><rect x="190" y="119" width="256.7" height="16" rx="3" fill="var(--accent2)"/><text x="452.7" y="131" class="chart-value">56</text></svg></div></div>
+<div class="card" style="margin-top:14px"><svg viewBox="0 0 640 220" role="img" aria-label="Daily spend vs results" xmlns="http://www.w3.org/2000/svg" class="chart"><text x="0" y="16" class="chart-title">Daily spend vs results</text><line x1="14" x2="626" y1="34.0" y2="34.0" class="grid"/><line x1="14" x2="626" y1="73.5" y2="73.5" class="grid"/><line x1="14" x2="626" y1="113.0" y2="113.0" class="grid"/><line x1="14" x2="626" y1="152.5" y2="152.5" class="grid"/><line x1="14" x2="626" y1="192.0" y2="192.0" class="grid"/><polyline points="14.0,42.9 61.1,40.4 108.2,35.8 155.2,41.3 202.3,44.8 249.4,34.0 296.5,36.3 343.5,34.7 390.6,44.5 437.7,49.5 484.8,44.3 531.8,39.0 578.9,38.1 626.0,40.1" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linejoin="round"/><polyline points="14.0,86.7 61.1,60.3 108.2,47.2 155.2,60.3 202.3,60.3 249.4,47.2 296.5,34.0 343.5,73.5 390.6,73.5 437.7,73.5 484.8,73.5 531.8,60.3 578.9,60.3 626.0,60.3" fill="none" stroke="var(--accent2)" stroke-width="2.2" stroke-linejoin="round"/><rect x="456" y="6" width="10" height="10" rx="2" fill="var(--accent)"/><text x="470" y="15" class="chart-label">Spend</text><rect x="541" y="6" width="10" height="10" rx="2" fill="var(--accent2)"/><text x="555" y="15" class="chart-label">Results</text><text x="14.0" y="212" text-anchor="middle" class="chart-label">03-16</text><text x="108.2" y="212" text-anchor="middle" class="chart-label">03-18</text><text x="202.3" y="212" text-anchor="middle" class="chart-label">03-20</text><text x="296.5" y="212" text-anchor="middle" class="chart-label">03-22</text><text x="390.6" y="212" text-anchor="middle" class="chart-label">03-24</text><text x="484.8" y="212" text-anchor="middle" class="chart-label">03-26</text><text x="578.9" y="212" text-anchor="middle" class="chart-label">03-28</text></svg></div>
+<h2>Campaigns</h2>
+<div class="card scroll"><table>
+<thead><tr><th>Campaign</th><th class="n">Spend (BDT)</th><th class="n">Impr.</th><th class="n">Reach</th><th class="n">Clicks</th><th class="n">CTR</th><th class="n">CPC</th><th class="n">CPM</th><th class="n">Freq.</th><th class="n">Results</th><th class="n">Cost/result</th><th class="n">ROAS</th></tr></thead>
+<tbody>
+<tr><td>Eid Sale - Prospecting</td><td class="n">37,438.70<span class="delta up">+16.5%</span></td><td class="n">197,077</td><td class="n">171,444</td><td class="n">4,682</td><td class="n">2.38% <span class="pf pass" title="meets target">&#10003;</span></td><td class="n">8.00</td><td class="n">189.97</td><td class="n">1.15 <span class="pf pass" title="meets target">&#10003;</span></td><td class="n">72</td><td class="n">519.98<span class="delta down">+6.8%</span> <span class="pf fail" title="misses target">&#10007;</span></td><td class="n">3.46x <span class="pf pass" title="meets target">&#10003;</span></td></tr>
+<tr><td>Lookalike 1% - Buyers</td><td class="n">26,098.25<span class="delta up">+9.5%</span></td><td class="n">108,520</td><td class="n">90,007</td><td class="n">1,710</td><td class="n">1.58% <span class="pf pass" title="meets target">&#10003;</span></td><td class="n">15.26</td><td class="n">240.49</td><td class="n">1.21 <span class="pf pass" title="meets target">&#10003;</span></td><td class="n">10</td><td class="n">2,609.83<span class="delta up">-67.1%</span> <span class="pf fail" title="misses target">&#10007;</span></td><td class="n">0.73x <span class="pf fail" title="misses target">&#10007;</span></td></tr>
+<tr><td>Brand Awareness - Reels</td><td class="n">21,393.11<span class="delta up">+14.2%</span></td><td class="n">225,261</td><td class="n">59,463</td><td class="n">1,545</td><td class="n">0.69% <span class="pf fail" title="misses target">&#10007;</span></td><td class="n">13.85</td><td class="n">94.97</td><td class="n">3.79 <span class="pf fail" title="misses target">&#10007;</span></td><td class="n">0</td><td class="n">-</td><td class="n">-</td></tr>
+<tr><td>Retargeting - Cart Abandoners</td><td class="n">15,003.34<span class="delta up">+7.6%</span></td><td class="n">48,366</td><td class="n">23,078</td><td class="n">1,453</td><td class="n">3.00% <span class="pf pass" title="meets target">&#10003;</span></td><td class="n">10.33</td><td class="n">310.20</td><td class="n">2.10 <span class="pf pass" title="meets target">&#10003;</span></td><td class="n">56</td><td class="n">267.92<span class="delta down">+5.7%</span> <span class="pf pass" title="meets target">&#10003;</span></td><td class="n">8.21x <span class="pf pass" title="meets target">&#10003;</span></td></tr>
+<tr><th>Total</th><th class="n">99,933.40</th><th class="n">579,224</th><th class="n">343,992</th><th class="n">9,390</th><th class="n">1.62%</th><th class="n">10.64</th><th class="n">172.53</th><th class="n">1.68</th><th class="n">138</th><th class="n">724.16</th><th class="n">2.72x</th></tr>
+</tbody></table></div>
+<div class="sub" style="margin-top:6px">Reach is summed across rows and may overlap between campaigns, so total frequency is an approximation.</div>
+
+<h2>Top and bottom campaigns (cost per result)</h2>
+<div class="grid2">
+<div class="card"><h3>Best performers</h3><ol class="rank"><li>Retargeting - Cart Abandoners &mdash; BDT 267.92</li><li>Eid Sale - Prospecting &mdash; BDT 519.98</li></ol></div>
+<div class="card"><h3>Needs attention</h3><ol class="rank"><li>Lookalike 1% - Buyers &mdash; BDT 2,609.83</li></ol></div>
+</div>
+
+<h2>Ad sets</h2><div class="card"><div class="scroll"><table>
+<thead><tr><th>Name</th><th>Parent</th><th class="n">Spend (BDT)</th><th class="n">Impr.</th><th class="n">Reach</th><th class="n">Clicks</th><th class="n">CTR</th><th class="n">CPC</th><th class="n">CPM</th><th class="n">Freq.</th><th class="n">Results</th><th class="n">Cost/result</th><th class="n">ROAS</th></tr></thead>
+<tbody>
+<tr><td>Chattogram 18-34</td><td class="muted">Eid Sale - Prospecting</td><td class="n">18,899.16</td><td class="n">98,877</td><td class="n">86,283</td><td class="n">2,367</td><td class="n">2.39%</td><td class="n">7.98</td><td class="n">191.14</td><td class="n">1.15</td><td class="n">36</td><td class="n">524.98</td><td class="n">3.43x</td></tr>
+<tr><td>Dhaka 18-34</td><td class="muted">Eid Sale - Prospecting</td><td class="n">18,539.54</td><td class="n">98,200</td><td class="n">85,161</td><td class="n">2,315</td><td class="n">2.36%</td><td class="n">8.01</td><td class="n">188.79</td><td class="n">1.15</td><td class="n">36</td><td class="n">514.99</td><td class="n">3.49x</td></tr>
+<tr><td>LAL Top Spenders</td><td class="muted">Lookalike 1% - Buyers</td><td class="n">13,224.18</td><td class="n">54,303</td><td class="n">45,067</td><td class="n">854</td><td class="n">1.57%</td><td class="n">15.48</td><td class="n">243.53</td><td class="n">1.20</td><td class="n">6</td><td class="n">2,204.03</td><td class="n">0.86x</td></tr>
+<tr><td>LAL Purchasers</td><td class="muted">Lookalike 1% - Buyers</td><td class="n">12,874.07</td><td class="n">54,217</td><td class="n">44,940</td><td class="n">856</td><td class="n">1.58%</td><td class="n">15.04</td><td class="n">237.45</td><td class="n">1.21</td><td class="n">4</td><td class="n">3,218.52</td><td class="n">0.59x</td></tr>
+<tr><td>Interest - Fashion</td><td class="muted">Brand Awareness - Reels</td><td class="n">10,758.24</td><td class="n">112,317</td><td class="n">29,661</td><td class="n">762</td><td class="n">0.68%</td><td class="n">14.12</td><td class="n">95.78</td><td class="n">3.79</td><td class="n">0</td><td class="n">-</td><td class="n">-</td></tr>
+<tr><td>Broad BD</td><td class="muted">Brand Awareness - Reels</td><td class="n">10,634.87</td><td class="n">112,944</td><td class="n">29,802</td><td class="n">783</td><td class="n">0.69%</td><td class="n">13.58</td><td class="n">94.16</td><td class="n">3.79</td><td class="n">0</td><td class="n">-</td><td class="n">-</td></tr>
+<tr><td>Cart 7d</td><td class="muted">Retargeting - Cart Abandoners</td><td class="n">7,519.48</td><td class="n">24,244</td><td class="n">11,611</td><td class="n">724</td><td class="n">2.99%</td><td class="n">10.39</td><td class="n">310.16</td><td class="n">2.09</td><td class="n">28</td><td class="n">268.55</td><td class="n">8.19x</td></tr>
+<tr><td>Viewed 14d</td><td class="muted">Retargeting - Cart Abandoners</td><td class="n">7,483.86</td><td class="n">24,122</td><td class="n">11,467</td><td class="n">729</td><td class="n">3.02%</td><td class="n">10.27</td><td class="n">310.25</td><td class="n">2.10</td><td class="n">28</td><td class="n">267.28</td><td class="n">8.23x</td></tr>
+</tbody></table></div>
+</div><h2>Ads</h2>
+<div class="grid2" style="margin-bottom:14px">
+<div class="card"><h3>Best ads</h3><ol class="rank"><li>Static B <span class="muted">(Viewed 14d)</span> &mdash; BDT 212.77</li><li>Static B <span class="muted">(Cart 7d)</span> &mdash; BDT 218.11</li><li>Video A <span class="muted">(Cart 7d)</span> &mdash; BDT 319.00</li></ol></div>
+<div class="card"><h3>Weakest ads</h3><ol class="rank"><li>Video A <span class="muted">(LAL Purchasers)</span> &mdash; BDT 1,910.41</li><li>Video A <span class="muted">(LAL Top Spenders)</span> &mdash; BDT 1,316.27</li><li>Static B <span class="muted">(Chattogram 18-34)</span> &mdash; BDT 548.90</li></ol></div></div><div class="card"><div class="scroll"><table>
+<thead><tr><th>Name</th><th>Parent</th><th class="n">Spend (BDT)</th><th class="n">Impr.</th><th class="n">Reach</th><th class="n">Clicks</th><th class="n">CTR</th><th class="n">CPC</th><th class="n">CPM</th><th class="n">Freq.</th><th class="n">Results</th><th class="n">Cost/result</th><th class="n">ROAS</th></tr></thead>
+<tbody>
+<tr><td>Video A</td><td class="muted">Chattogram 18-34</td><td class="n">11,214.49</td><td class="n">58,051</td><td class="n">50,208</td><td class="n">1,394</td><td class="n">2.40%</td><td class="n">8.04</td><td class="n">193.18</td><td class="n">1.16</td><td class="n">22</td><td class="n">509.75</td><td class="n">3.53x</td></tr>
+<tr><td>Video A</td><td class="muted">Dhaka 18-34</td><td class="n">11,186.73</td><td class="n">59,270</td><td class="n">51,302</td><td class="n">1,393</td><td class="n">2.35%</td><td class="n">8.03</td><td class="n">188.74</td><td class="n">1.16</td><td class="n">22</td><td class="n">508.49</td><td class="n">3.54x</td></tr>
+<tr><td>Video A</td><td class="muted">LAL Top Spenders</td><td class="n">7,897.60</td><td class="n">32,279</td><td class="n">27,011</td><td class="n">507</td><td class="n">1.57%</td><td class="n">15.58</td><td class="n">244.67</td><td class="n">1.20</td><td class="n">6</td><td class="n">1,316.27</td><td class="n">1.44x</td></tr>
+<tr><td>Static B</td><td class="muted">Chattogram 18-34</td><td class="n">7,684.67</td><td class="n">40,826</td><td class="n">36,075</td><td class="n">973</td><td class="n">2.38%</td><td class="n">7.90</td><td class="n">188.23</td><td class="n">1.13</td><td class="n">14</td><td class="n">548.90</td><td class="n">3.28x</td></tr>
+<tr><td>Video A</td><td class="muted">LAL Purchasers</td><td class="n">7,641.65</td><td class="n">32,092</td><td class="n">26,468</td><td class="n">514</td><td class="n">1.60%</td><td class="n">14.87</td><td class="n">238.12</td><td class="n">1.21</td><td class="n">4</td><td class="n">1,910.41</td><td class="n">0.99x</td></tr>
+<tr><td>Static B</td><td class="muted">Dhaka 18-34</td><td class="n">7,352.81</td><td class="n">38,930</td><td class="n">33,859</td><td class="n">922</td><td class="n">2.37%</td><td class="n">7.97</td><td class="n">188.87</td><td class="n">1.15</td><td class="n">14</td><td class="n">525.20</td><td class="n">3.43x</td></tr>
+<tr><td>Video A</td><td class="muted">Broad BD</td><td class="n">6,447.13</td><td class="n">68,581</td><td class="n">18,123</td><td class="n">484</td><td class="n">0.71%</td><td class="n">13.32</td><td class="n">94.01</td><td class="n">3.78</td><td class="n">0</td><td class="n">-</td><td class="n">-</td></tr>
+<tr><td>Video A</td><td class="muted">Interest - Fashion</td><td class="n">6,398.68</td><td class="n">66,727</td><td class="n">17,656</td><td class="n">455</td><td class="n">0.68%</td><td class="n">14.06</td><td class="n">95.89</td><td class="n">3.78</td><td class="n">0</td><td class="n">-</td><td class="n">-</td></tr>
+<tr><td>Static B</td><td class="muted">LAL Top Spenders</td><td class="n">5,326.58</td><td class="n">22,024</td><td class="n">18,056</td><td class="n">347</td><td class="n">1.58%</td><td class="n">15.35</td><td class="n">241.85</td><td class="n">1.22</td><td class="n">0</td><td class="n">-</td><td class="n">-</td></tr>
+<tr><td>Static B</td><td class="muted">LAL Purchasers</td><td class="n">5,232.42</td><td class="n">22,125</td><td class="n">18,472</td><td class="n">342</td><td class="n">1.55%</td><td class="n">15.30</td><td class="n">236.49</td><td class="n">1.20</td><td class="n">0</td><td class="n">-</td><td class="n">-</td></tr>
+<tr><td>Video A</td><td class="muted">Viewed 14d</td><td class="n">4,505.02</td><td class="n">14,432</td><td class="n">6,926</td><td class="n">428</td><td class="n">2.97%</td><td class="n">10.53</td><td class="n">312.15</td><td class="n">2.08</td><td class="n">14</td><td class="n">321.79</td><td class="n">6.84x</td></tr>
+<tr><td>Video A</td><td class="muted">Cart 7d</td><td class="n">4,465.98</td><td class="n">14,348</td><td class="n">6,897</td><td class="n">425</td><td class="n">2.96%</td><td class="n">10.51</td><td class="n">311.26</td><td class="n">2.08</td><td class="n">14</td><td class="n">319.00</td><td class="n">6.90x</td></tr>
+<tr><td>Static B</td><td class="muted">Interest - Fashion</td><td class="n">4,359.56</td><td class="n">45,590</td><td class="n">12,005</td><td class="n">307</td><td class="n">0.67%</td><td class="n">14.20</td><td class="n">95.63</td><td class="n">3.80</td><td class="n">0</td><td class="n">-</td><td class="n">-</td></tr>
+<tr><td>Static B</td><td class="muted">Broad BD</td><td class="n">4,187.74</td><td class="n">44,363</td><td class="n">11,679</td><td class="n">299</td><td class="n">0.67%</td><td class="n">14.01</td><td class="n">94.40</td><td class="n">3.80</td><td class="n">0</td><td class="n">-</td><td class="n">-</td></tr>
+<tr><td>Static B</td><td class="muted">Cart 7d</td><td class="n">3,053.50</td><td class="n">9,896</td><td class="n">4,714</td><td class="n">299</td><td class="n">3.02%</td><td class="n">10.21</td><td class="n">308.56</td><td class="n">2.10</td><td class="n">14</td><td class="n">218.11</td><td class="n">10.09x</td></tr>
+<tr><td>Static B</td><td class="muted">Viewed 14d</td><td class="n">2,978.84</td><td class="n">9,690</td><td class="n">4,541</td><td class="n">301</td><td class="n">3.11%</td><td class="n">9.90</td><td class="n">307.41</td><td class="n">2.13</td><td class="n">14</td><td class="n">212.77</td><td class="n">10.34x</td></tr>
+</tbody></table></div>
+</div>
+<h2>Breakdown: Age</h2>
+<div class="card" style="max-width:640px;margin-bottom:12px"><svg viewBox="0 0 610 154" role="img" aria-label="Spend by age" xmlns="http://www.w3.org/2000/svg" class="chart"><text x="0" y="16" class="chart-title">Spend by age</text><text x="182" y="47" text-anchor="end" class="chart-label">35-44</text><rect x="190" y="35" width="330.0" height="16" rx="3" fill="var(--accent)"/><text x="526.0" y="47" class="chart-value">28,046</text><text x="182" y="75" text-anchor="end" class="chart-label">25-34</text><rect x="190" y="63" width="310.4" height="16" rx="3" fill="var(--accent)"/><text x="506.4" y="75" class="chart-value">26,384</text><text x="182" y="103" text-anchor="end" class="chart-label">18-24</text><rect x="190" y="91" width="277.8" height="16" rx="3" fill="var(--accent)"/><text x="473.8" y="103" class="chart-value">23,611</text><text x="182" y="131" text-anchor="end" class="chart-label">45-54</text><rect x="190" y="119" width="241.9" height="16" rx="3" fill="var(--accent)"/><text x="437.9" y="131" class="chart-value">20,560</text></svg></div><div class="card"><div class="scroll"><table>
+<thead><tr><th>Name</th><th class="n">Spend (BDT)</th><th class="n">Impr.</th><th class="n">Reach</th><th class="n">Clicks</th><th class="n">CTR</th><th class="n">CPC</th><th class="n">CPM</th><th class="n">Freq.</th><th class="n">Results</th><th class="n">Cost/result</th><th class="n">ROAS</th></tr></thead>
+<tbody>
+<tr><td>35-44</td><td class="n">28,046.35</td><td class="n">179,276</td><td class="n">101,737</td><td class="n">2,627</td><td class="n">1.47%</td><td class="n">10.68</td><td class="n">156.44</td><td class="n">1.76</td><td class="n">35</td><td class="n">801.32</td><td class="n">2.33x</td></tr>
+<tr><td>25-34</td><td class="n">26,384.13</td><td class="n">162,524</td><td class="n">99,349</td><td class="n">2,921</td><td class="n">1.80%</td><td class="n">9.03</td><td class="n">162.34</td><td class="n">1.64</td><td class="n">44</td><td class="n">599.64</td><td class="n">3.15x</td></tr>
+<tr><td>18-24</td><td class="n">23,611.40</td><td class="n">140,919</td><td class="n">83,317</td><td class="n">2,259</td><td class="n">1.60%</td><td class="n">10.45</td><td class="n">167.55</td><td class="n">1.69</td><td class="n">29</td><td class="n">814.19</td><td class="n">2.40x</td></tr>
+<tr><td>45-54</td><td class="n">20,560.23</td><td class="n">126,937</td><td class="n">69,450</td><td class="n">1,954</td><td class="n">1.54%</td><td class="n">10.52</td><td class="n">161.97</td><td class="n">1.83</td><td class="n">27</td><td class="n">761.49</td><td class="n">2.53x</td></tr>
+</tbody></table></div>
+</div>
+<h2>Breakdown: Gender</h2>
+<div class="card" style="max-width:640px;margin-bottom:12px"><svg viewBox="0 0 610 98" role="img" aria-label="Spend by gender" xmlns="http://www.w3.org/2000/svg" class="chart"><text x="0" y="16" class="chart-title">Spend by gender</text><text x="182" y="47" text-anchor="end" class="chart-label">male</text><rect x="190" y="35" width="330.0" height="16" rx="3" fill="var(--accent)"/><text x="526.0" y="47" class="chart-value">50,296</text><text x="182" y="75" text-anchor="end" class="chart-label">female</text><rect x="190" y="63" width="316.9" height="16" rx="3" fill="var(--accent)"/><text x="512.9" y="75" class="chart-value">48,306</text></svg></div><div class="card"><div class="scroll"><table>
+<thead><tr><th>Name</th><th class="n">Spend (BDT)</th><th class="n">Impr.</th><th class="n">Reach</th><th class="n">Clicks</th><th class="n">CTR</th><th class="n">CPC</th><th class="n">CPM</th><th class="n">Freq.</th><th class="n">Results</th><th class="n">Cost/result</th><th class="n">ROAS</th></tr></thead>
+<tbody>
+<tr><td>male</td><td class="n">50,295.67</td><td class="n">318,242</td><td class="n">185,028</td><td class="n">5,212</td><td class="n">1.64%</td><td class="n">9.65</td><td class="n">158.04</td><td class="n">1.72</td><td class="n">69</td><td class="n">728.92</td><td class="n">2.59x</td></tr>
+<tr><td>female</td><td class="n">48,306.44</td><td class="n">291,414</td><td class="n">168,825</td><td class="n">4,549</td><td class="n">1.56%</td><td class="n">10.62</td><td class="n">165.77</td><td class="n">1.73</td><td class="n">66</td><td class="n">731.92</td><td class="n">2.63x</td></tr>
+</tbody></table></div>
+</div>
+<h2>Breakdown: Placement</h2>
+<div class="card" style="max-width:640px;margin-bottom:12px"><svg viewBox="0 0 610 182" role="img" aria-label="Spend by placement" xmlns="http://www.w3.org/2000/svg" class="chart"><text x="0" y="16" class="chart-title">Spend by placement</text><text x="182" y="47" text-anchor="end" class="chart-label">Facebook Feed</text><rect x="190" y="35" width="330.0" height="16" rx="3" fill="var(--accent)"/><text x="526.0" y="47" class="chart-value">21,370</text><text x="182" y="75" text-anchor="end" class="chart-label">Instagram Feed</text><rect x="190" y="63" width="321.9" height="16" rx="3" fill="var(--accent)"/><text x="517.9" y="75" class="chart-value">20,843</text><text x="182" y="103" text-anchor="end" class="chart-label">Instagram Stories</text><rect x="190" y="91" width="312.0" height="16" rx="3" fill="var(--accent)"/><text x="508.0" y="103" class="chart-value">20,207</text><text x="182" y="131" text-anchor="end" class="chart-label">Instagram Reels</text><rect x="190" y="119" width="308.5" height="16" rx="3" fill="var(--accent)"/><text x="504.5" y="131" class="chart-value">19,980</text><text x="182" y="159" text-anchor="end" class="chart-label">Audience Network</text><rect x="190" y="147" width="307.7" height="16" rx="3" fill="var(--accent)"/><text x="503.7" y="159" class="chart-value">19,925</text></svg></div><div class="card"><div class="scroll"><table>
+<thead><tr><th>Name</th><th class="n">Spend (BDT)</th><th class="n">Impr.</th><th class="n">Reach</th><th class="n">Clicks</th><th class="n">CTR</th><th class="n">CPC</th><th class="n">CPM</th><th class="n">Freq.</th><th class="n">Results</th><th class="n">Cost/result</th><th class="n">ROAS</th></tr></thead>
+<tbody>
+<tr><td>Facebook Feed</td><td class="n">21,369.78</td><td class="n">108,209</td><td class="n">62,723</td><td class="n">1,927</td><td class="n">1.78%</td><td class="n">11.09</td><td class="n">197.49</td><td class="n">1.73</td><td class="n">33</td><td class="n">647.57</td><td class="n">2.93x</td></tr>
+<tr><td>Instagram Feed</td><td class="n">20,842.90</td><td class="n">100,627</td><td class="n">67,858</td><td class="n">1,974</td><td class="n">1.96%</td><td class="n">10.56</td><td class="n">207.13</td><td class="n">1.48</td><td class="n">22</td><td class="n">947.40</td><td class="n">1.97x</td></tr>
+<tr><td>Instagram Stories</td><td class="n">20,206.60</td><td class="n">108,381</td><td class="n">62,314</td><td class="n">1,735</td><td class="n">1.60%</td><td class="n">11.65</td><td class="n">186.44</td><td class="n">1.74</td><td class="n">26</td><td class="n">777.18</td><td class="n">2.56x</td></tr>
+<tr><td>Instagram Reels</td><td class="n">19,979.79</td><td class="n">108,239</td><td class="n">67,431</td><td class="n">1,523</td><td class="n">1.41%</td><td class="n">13.12</td><td class="n">184.59</td><td class="n">1.61</td><td class="n">28</td><td class="n">713.56</td><td class="n">2.59x</td></tr>
+<tr><td>Audience Network</td><td class="n">19,925.01</td><td class="n">119,578</td><td class="n">57,837</td><td class="n">1,845</td><td class="n">1.54%</td><td class="n">10.80</td><td class="n">166.63</td><td class="n">2.07</td><td class="n">27</td><td class="n">737.96</td><td class="n">2.60x</td></tr>
+</tbody></table></div>
+</div>
+<h2>Breakdown: Region</h2>
+<div class="card" style="max-width:640px;margin-bottom:12px"><svg viewBox="0 0 610 154" role="img" aria-label="Spend by region" xmlns="http://www.w3.org/2000/svg" class="chart"><text x="0" y="16" class="chart-title">Spend by region</text><text x="182" y="47" text-anchor="end" class="chart-label">Dhaka</text><rect x="190" y="35" width="330.0" height="16" rx="3" fill="var(--accent)"/><text x="526.0" y="47" class="chart-value">25,876</text><text x="182" y="75" text-anchor="end" class="chart-label">Sylhet</text><rect x="190" y="63" width="322.9" height="16" rx="3" fill="var(--accent)"/><text x="518.9" y="75" class="chart-value">25,320</text><text x="182" y="103" text-anchor="end" class="chart-label">Chattogram</text><rect x="190" y="91" width="311.6" height="16" rx="3" fill="var(--accent)"/><text x="507.6" y="103" class="chart-value">24,432</text><text x="182" y="131" text-anchor="end" class="chart-label">Rajshahi</text><rect x="190" y="119" width="254.2" height="16" rx="3" fill="var(--accent)"/><text x="450.2" y="131" class="chart-value">19,931</text></svg></div><div class="card"><div class="scroll"><table>
+<thead><tr><th>Name</th><th class="n">Spend (BDT)</th><th class="n">Impr.</th><th class="n">Reach</th><th class="n">Clicks</th><th class="n">CTR</th><th class="n">CPC</th><th class="n">CPM</th><th class="n">Freq.</th><th class="n">Results</th><th class="n">Cost/result</th><th class="n">ROAS</th></tr></thead>
+<tbody>
+<tr><td>Dhaka</td><td class="n">25,876.21</td><td class="n">114,863</td><td class="n">70,805</td><td class="n">2,113</td><td class="n">1.84%</td><td class="n">12.25</td><td class="n">225.28</td><td class="n">1.62</td><td class="n">38</td><td class="n">680.95</td><td class="n">2.95x</td></tr>
+<tr><td>Sylhet</td><td class="n">25,319.58</td><td class="n">141,898</td><td class="n">85,692</td><td class="n">2,597</td><td class="n">1.83%</td><td class="n">9.75</td><td class="n">178.44</td><td class="n">1.66</td><td class="n">47</td><td class="n">538.71</td><td class="n">3.68x</td></tr>
+<tr><td>Chattogram</td><td class="n">24,432.23</td><td class="n">115,045</td><td class="n">75,284</td><td class="n">1,840</td><td class="n">1.60%</td><td class="n">13.28</td><td class="n">212.37</td><td class="n">1.53</td><td class="n">41</td><td class="n">595.91</td><td class="n">3.36x</td></tr>
+<tr><td>Rajshahi</td><td class="n">19,931.09</td><td class="n">119,156</td><td class="n">65,374</td><td class="n">1,820</td><td class="n">1.53%</td><td class="n">10.95</td><td class="n">167.27</td><td class="n">1.82</td><td class="n">34</td><td class="n">586.21</td><td class="n">3.41x</td></tr>
+</tbody></table></div>
+</div>
+
+<footer>Generated 2026-11-07 with meta-ads-report 0.1.0 &middot; 5 files merged</footer>
+</div>
+</body>
+</html>
