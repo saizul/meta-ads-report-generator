@@ -65,6 +65,8 @@ If weasyprint is not installed (or its system libraries are missing) the HTML is
 
 ### Exporting from Ads Manager
 
+Files are read as UTF-8 (with or without BOM), UTF-16 (some accounts download UTF-16 tab-separated files) or Windows-1252, and the delimiter (comma, tab, semicolon or pipe) is detected from the header row, so you can feed exports straight in without re-saving them.
+
 Export with columns: Campaign name, Ad set name, Ad name, Amount spent, Impressions, Reach, Link clicks, Results, Result type, Cost per result, Purchases, Purchase ROAS. Use a "Day" breakdown to get the daily chart. Age, gender, placement and region breakdowns come from Ads Manager's Breakdown menu; export each as its own CSV.
 
 ## Config file
