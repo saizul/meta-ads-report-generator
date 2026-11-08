@@ -1,6 +1,7 @@
 """Optional exporters: XLSX (openpyxl) and PDF (weasyprint)."""
 from __future__ import annotations
 
+import csv
 from typing import Any, Dict, List
 
 from .metrics import Stats
@@ -21,6 +22,33 @@ def _row(s: Stats) -> List[Any]:
 
 def _r(v):
     return None if v is None else round(v, 4)
+
+
+def _cell(v: Any) -> Any:
+    if v is None:
+        return ""
+    return int(v) if isinstance(v, float) and v.is_integer() else v
+
+
+METRICS_LEVELS = ("campaign", "adset", "ad", "daily")
+
+
+def write_metrics_csv(rep: Any, path: str, level: str = "campaign") -> int:
+    """Write the computed metrics (CTR, CPC, CPM, CPA, ROAS ...) for one level to a CSV file.
+
+    ``level`` is one of ``METRICS_LEVELS``. Returns the number of data rows written.
+    Metrics that cannot be computed (e.g. ROAS without purchase value) are left empty.
+    """
+    if level not in METRICS_LEVELS:
+        raise ValueError(f"unknown level {level!r}; choose from {', '.join(METRICS_LEVELS)}")
+    items = {"campaign": rep.campaigns, "adset": rep.adsets, "ad": rep.ads, "daily": rep.daily}[level]
+    head = [f"Spend ({rep.currency})" if h == "Spend" else h for h in _HEAD]
+    with open(path, "w", newline="", encoding="utf-8") as fh:
+        writer = csv.writer(fh)
+        writer.writerow(head)
+        for it in items:
+            writer.writerow([_cell(v) for v in _row(it)])
+    return len(items)
 
 
 def write_xlsx(ctx: Dict[str, Any], path: str) -> None:

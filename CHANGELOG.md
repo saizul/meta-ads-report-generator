@@ -7,6 +7,7 @@ All notable changes to this project are documented here. The format follows
 ## [Unreleased]
 
 ### Added
+- `--metrics-csv FILE` (with `--metrics-level campaign|adset|ad|daily`) exports the computed per-row metrics as a flat CSV.
 - CSV exports are decoded automatically: UTF-8 with or without BOM, UTF-16 (LE/BE, with or without BOM, as some Ads Manager accounts export) and legacy cp1252.
 - The delimiter is sniffed from the header row (comma, tab, semicolon or pipe), so tab-separated UTF-16 exports and semicolon files from spreadsheets load without conversion.
 - Whitespace around header names is ignored.

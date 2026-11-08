@@ -113,3 +113,35 @@ def test_cli_multi_file_and_previous(write_csv, tmp_path):
     html = out.read_text(encoding="utf-8")
     assert "2026-02-01 to 2026-02-14" in html and "compared with 2026-01-01" in html
     assert "2 files merged" in html
+
+
+def _read_rows(path):
+    import csv
+    with open(path, newline="", encoding="utf-8") as fh:
+        return list(csv.DictReader(fh))
+
+
+def test_metrics_csv_campaign_level(basic_csv, tmp_path, capsys):
+    out = tmp_path / "metrics.csv"
+    code = main([basic_csv, "-o", str(tmp_path / "r.html"), "--metrics-csv", str(out), "--currency", "USD"])
+    assert code == 0
+    assert "2 campaign rows" in capsys.readouterr().out
+    rows = {r["Name"]: r for r in _read_rows(out)}
+    assert set(rows) == {"Camp A", "Camp B"}
+    a = rows["Camp A"]
+    assert float(a["Spend (USD)"]) == 150.0
+    assert int(a["Impressions"]) == 16000
+    assert float(a["CTR %"]) == pytest.approx(260 / 16000 * 100, abs=1e-3)
+    assert rows["Camp B"]["ROAS"] == ""  # no purchase value reported -> left empty, not "None"
+
+
+def test_metrics_csv_ad_level(basic_csv, tmp_path):
+    out = tmp_path / "ads.csv"
+    assert main([basic_csv, "-o", str(tmp_path / "r.html"), "--metrics-csv", str(out), "--metrics-level", "ad"]) == 0
+    assert {r["Name"] for r in _read_rows(out)} == {"Ad 1", "Ad 2", "Ad 3"}
+
+
+def test_metrics_csv_unwritable_path(basic_csv, tmp_path, capsys):
+    bad = tmp_path / "missing-dir" / "m.csv"
+    assert main([basic_csv, "-o", str(tmp_path / "r.html"), "--metrics-csv", str(bad)]) == 2
+    assert "cannot write" in capsys.readouterr().err
