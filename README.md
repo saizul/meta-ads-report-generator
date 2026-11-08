@@ -60,6 +60,7 @@ If weasyprint is not installed (or its system libraries are missing) the HTML is
 | `--brand`, `--logo-text`, `--title` | header branding |
 | `--theme` | `light`, `dark`, `ocean` |
 | `--xlsx FILE`, `--pdf FILE` | extra exports |
+| `--metrics-csv FILE`, `--metrics-level {campaign,adset,ad,daily}` | write the computed metrics (spend, CTR, CPC, CPM, frequency, cost per result, ROAS) as a flat CSV, one row per campaign (default), ad set, ad or day; ready for Sheets, BI tools or scripts |
 | `--rules FILE.py` | load custom insight rules |
 | `--no-dedupe` | keep rows repeated across files |
 

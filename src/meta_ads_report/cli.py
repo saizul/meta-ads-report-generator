@@ -7,7 +7,7 @@ from typing import List, Optional
 
 from . import __version__
 from .config import THEMES, ConfigError, load_config
-from .exporters import ExportUnavailable, write_pdf, write_xlsx
+from .exporters import METRICS_LEVELS, ExportUnavailable, write_metrics_csv, write_pdf, write_xlsx
 from .insights import load_rule_module
 from .metrics import build_report
 from .render import build_context, render_html
@@ -29,6 +29,9 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--theme", choices=THEMES, help="colour theme")
     p.add_argument("--pdf", metavar="FILE", help="also write a PDF (needs weasyprint)")
     p.add_argument("--xlsx", metavar="FILE", help="also write an Excel workbook (needs openpyxl)")
+    p.add_argument("--metrics-csv", metavar="FILE", help="also write the computed metrics (CTR, CPC, CPM, CPA, ROAS ...) to a CSV file")
+    p.add_argument("--metrics-level", choices=METRICS_LEVELS, default="campaign",
+                   help="row level for --metrics-csv (default: campaign)")
     p.add_argument("--rules", action="append", default=[], metavar="PY", help="Python file registering extra insight rules")
     p.add_argument("--no-dedupe", action="store_true", help="do not drop rows repeated across files")
     p.add_argument("--version", action="version", version=f"%(prog)s {__version__}")
@@ -60,6 +63,13 @@ def main(argv: Optional[List[str]] = None) -> int:
     print(f"wrote {args.output}")
 
     status = 0
+    if args.metrics_csv:
+        try:
+            count = write_metrics_csv(rep, args.metrics_csv, args.metrics_level)
+        except OSError as exc:
+            print(f"error: cannot write {args.metrics_csv}: {exc.strerror}", file=sys.stderr)
+            return 2
+        print(f"wrote {args.metrics_csv} ({count} {args.metrics_level} rows)")
     if args.xlsx:
         try:
             write_xlsx(build_context(rep, cfg), args.xlsx)
