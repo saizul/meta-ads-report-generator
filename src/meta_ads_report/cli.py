@@ -11,6 +11,7 @@ from .exporters import METRICS_LEVELS, ExportUnavailable, write_metrics_csv, wri
 from .insights import load_rule_module
 from .metrics import build_report
 from .render import build_context, render_html
+from .summary import write_summary_json
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -32,6 +33,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--metrics-csv", metavar="FILE", help="also write the computed metrics (CTR, CPC, CPM, CPA, ROAS ...) to a CSV file")
     p.add_argument("--metrics-level", choices=METRICS_LEVELS, default="campaign",
                    help="row level for --metrics-csv (default: campaign)")
+    p.add_argument("--json", metavar="FILE", dest="json_path",
+                   help="also write a machine-readable JSON summary (totals, targets, insights, tables)")
     p.add_argument("--rules", action="append", default=[], metavar="PY", help="Python file registering extra insight rules")
     p.add_argument("--no-dedupe", action="store_true", help="do not drop rows repeated across files")
     p.add_argument("--version", action="version", version=f"%(prog)s {__version__}")
@@ -70,6 +73,15 @@ def main(argv: Optional[List[str]] = None) -> int:
             print(f"error: cannot write {args.metrics_csv}: {exc.strerror}", file=sys.stderr)
             return 2
         print(f"wrote {args.metrics_csv} ({count} {args.metrics_level} rows)")
+    if args.json_path:
+        try:
+            summary = write_summary_json(rep, cfg, args.json_path)
+        except OSError as exc:
+            print(f"error: cannot write {args.json_path}: {exc.strerror}", file=sys.stderr)
+            return 2
+        ts = summary["targets_summary"]
+        note = f" ({ts['passed']} of {len(summary['targets'])} KPI targets passed)" if summary["targets"] else ""
+        print(f"wrote {args.json_path}{note}")
     if args.xlsx:
         try:
             write_xlsx(build_context(rep, cfg), args.xlsx)
