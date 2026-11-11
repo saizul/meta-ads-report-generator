@@ -7,6 +7,7 @@ All notable changes to this project are documented here. The format follows
 ## [Unreleased]
 
 ### Added
+- `--json FILE` writes a machine-readable summary of the report (totals, period-over-period changes, KPI target statuses, insights, campaign/ad set/ad/daily tables and breakdowns) with a versioned schema, for dashboards, automations and CI checks. Also available from Python as `meta_ads_report.summary.build_summary`.
 - `--metrics-csv FILE` (with `--metrics-level campaign|adset|ad|daily`) exports the computed per-row metrics as a flat CSV.
 - CSV exports are decoded automatically: UTF-8 with or without BOM, UTF-16 (LE/BE, with or without BOM, as some Ads Manager accounts export) and legacy cp1252.
 - The delimiter is sniffed from the header row (comma, tab, semicolon or pipe), so tab-separated UTF-16 exports and semicolon files from spreadsheets load without conversion.
