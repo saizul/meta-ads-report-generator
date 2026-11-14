@@ -94,6 +94,7 @@ def build_context(rep: Report, cfg: Config, insights: Optional[List[Insight]] = 
         "generated": _dt.date.today().isoformat(), "version": __version__,
         "period": f"{rep.start} to {rep.end}" if rep.start else "",
         "prev_period": f"{rep.previous.start} to {rep.previous.end}" if rep.previous and rep.previous.start else "",
+        "filters": rep.filters.describe() if rep.filters else "",
     }
 
 

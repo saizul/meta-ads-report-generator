@@ -8,6 +8,7 @@ from typing import List, Optional
 from . import __version__
 from .config import THEMES, ConfigError, load_config
 from .exporters import METRICS_LEVELS, ExportUnavailable, write_metrics_csv, write_pdf, write_xlsx
+from .filters import RowFilter
 from .insights import load_rule_module
 from .metrics import build_report
 from .render import build_context, render_html
@@ -36,9 +37,27 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--json", metavar="FILE", dest="json_path",
                    help="also write a machine-readable JSON summary (totals, targets, insights, tables)")
     p.add_argument("--rules", action="append", default=[], metavar="PY", help="Python file registering extra insight rules")
+    p.add_argument("--since", metavar="YYYY-MM-DD", help="only include rows on or after this date")
+    p.add_argument("--until", metavar="YYYY-MM-DD", help="only include rows on or before this date")
+    p.add_argument("--campaign", action="append", default=[], metavar="PATTERN",
+                   help="only include campaigns matching PATTERN (substring, or glob with * ?); repeatable")
+    p.add_argument("--exclude-campaign", action="append", default=[], metavar="PATTERN",
+                   help="leave out campaigns matching PATTERN; repeatable")
     p.add_argument("--no-dedupe", action="store_true", help="do not drop rows repeated across files")
     p.add_argument("--version", action="version", version=f"%(prog)s {__version__}")
     return p
+
+
+def merge_filters(base: RowFilter, args: argparse.Namespace) -> RowFilter:
+    """Command line filters override the config file, option by option."""
+    since = RowFilter.from_args(since=args.since).since if args.since else base.since
+    until = RowFilter.from_args(until=args.until).until if args.until else base.until
+    return RowFilter(
+        since=since,
+        until=until,
+        campaigns=list(args.campaign) or list(base.campaigns),
+        exclude_campaigns=list(args.exclude_campaign) or list(base.exclude_campaigns),
+    )
 
 
 def main(argv: Optional[List[str]] = None) -> int:
@@ -53,7 +72,8 @@ def main(argv: Optional[List[str]] = None) -> int:
             cfg.currency = args.currency
         for path in args.rules:
             load_rule_module(path)
-        rep = build_report(args.csv, cfg.currency, args.previous, dedupe=not args.no_dedupe)
+        row_filter = merge_filters(cfg.filters, args)
+        rep = build_report(args.csv, cfg.currency, args.previous, dedupe=not args.no_dedupe, row_filter=row_filter)
     except (OSError, ValueError, ConfigError, ImportError) as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 2
@@ -63,6 +83,8 @@ def main(argv: Optional[List[str]] = None) -> int:
     html = render_html(rep, cfg)
     with open(args.output, "w", encoding="utf-8") as fh:
         fh.write(html)
+    if rep.filters is not None:
+        print(f"filtered: {rep.filters.describe()} ({rep.rows_filtered} rows left out)")
     print(f"wrote {args.output}")
 
     status = 0

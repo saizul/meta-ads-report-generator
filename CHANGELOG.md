@@ -7,11 +7,15 @@ All notable changes to this project are documented here. The format follows
 ## [Unreleased]
 
 ### Added
+- Row filters: `--since` / `--until` keep only rows inside a date window, and `--campaign` / `--exclude-campaign` (repeatable, case-insensitive substring or glob) keep or drop campaigns by name. Filters run before totals, so every table, chart, KPI target, insight and export reflects them. Campaign patterns also apply to the `--previous` period. The same options are available as a `filters` block in the YAML config, from Python as `meta_ads_report.filters.RowFilter`, and are recorded in the report header and in the JSON summary (`filters`, `sources.rows_filtered`).
 - `--json FILE` writes a machine-readable summary of the report (totals, period-over-period changes, KPI target statuses, insights, campaign/ad set/ad/daily tables and breakdowns) with a versioned schema, for dashboards, automations and CI checks. Also available from Python as `meta_ads_report.summary.build_summary`.
 - `--metrics-csv FILE` (with `--metrics-level campaign|adset|ad|daily`) exports the computed per-row metrics as a flat CSV.
 - CSV exports are decoded automatically: UTF-8 with or without BOM, UTF-16 (LE/BE, with or without BOM, as some Ads Manager accounts export) and legacy cp1252.
 - The delimiter is sniffed from the header row (comma, tab, semicolon or pipe), so tab-separated UTF-16 exports and semicolon files from spreadsheets load without conversion.
 - Whitespace around header names is ignored.
+
+### Changed
+- Python 3.10 or newer is required (`requires-python = ">=3.10"`), matching the versions tested in CI. Lint now targets 3.10, so `zip()` calls state `strict=` explicitly.
 
 ## [0.1.0] - 2026-03-30
 

@@ -96,7 +96,8 @@ def test_build_summary_basic(basic_csv):
     assert s["generator"]["name"] == "meta-ads-report" and s["generator"]["version"]
     assert s["brand"] == "Acme" and s["currency"] == "USD"
     assert s["period"] == {"start": "2026-01-01", "end": "2026-01-07"}
-    assert s["sources"] == {"files": 1, "duplicates_dropped": 0}
+    assert s["sources"] == {"files": 1, "duplicates_dropped": 0, "rows_filtered": 0}
+    assert s["filters"] is None
     assert s["totals"]["spend"] == 350 and s["totals"]["results"] == 12
     assert "name" not in s["totals"]
     assert s["previous"] is None

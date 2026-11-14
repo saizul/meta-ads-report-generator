@@ -53,7 +53,7 @@ footer{margin-top:40px;color:var(--muted);font-size:12px;text-align:center}
 <header>
 {% if cfg.logo_text or cfg.brand %}<div class="logo">{{ (cfg.logo_text or cfg.brand)[:3] }}</div>{% endif %}
 <div><h1>{{ cfg.title }}</h1>
-<div class="sub">{% if cfg.brand %}{{ cfg.brand }} &middot; {% endif %}{% if period %}{{ period }} &middot; {% endif %}Currency: {{ cur }}{% if prev_period %} &middot; compared with {{ prev_period }}{% endif %}</div></div>
+<div class="sub">{% if cfg.brand %}{{ cfg.brand }} &middot; {% endif %}{% if period %}{{ period }} &middot; {% endif %}Currency: {{ cur }}{% if prev_period %} &middot; compared with {{ prev_period }}{% endif %}{% if filters %} &middot; Filtered: {{ filters }}{% endif %}</div></div>
 </header>
 
 <section class="kpis">

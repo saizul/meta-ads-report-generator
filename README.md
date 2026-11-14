@@ -16,6 +16,7 @@ Built by [Saizul Amin](https://saizul.com). MIT licensed.
 - **KPI targets**: YAML config produces pass/fail badges and per-cell checkmarks.
 - **Insights engine**: pluggable rules (creative fatigue when frequency > 3, CTR < 1%, campaigns with zero results, expensive campaigns, ROAS below break-even, spend concentration, breakdown outliers, period regressions).
 - **Output**: one self-contained HTML file with inline SVG charts and three themes (`light`, `dark`, `ocean`). Optional `--xlsx` and `--pdf`.
+- **Filters**: `--since` / `--until` limit the report to a date window and `--campaign` / `--exclude-campaign` to a set of campaigns, so one full-account export can produce a report per client, product line or week.
 - **JSON summary**: `--json` writes the same numbers in a stable, versioned structure for dashboards, automations and CI checks.
 - Brand name and logo text, currency label (BDT / USD / anything).
 
@@ -29,7 +30,7 @@ pip install ".[xlsx]"         # + Excel export
 pip install ".[pdf]"          # + PDF export (weasyprint, needs system libs)
 ```
 
-Python 3.9 or newer.
+Python 3.10 or newer.
 
 ## Usage
 
@@ -43,6 +44,10 @@ meta-ads-report week1.csv week2.csv \
   --config examples/targets.yaml \
   --brand "Demo Studio" --currency BDT --theme dark \
   --xlsx report.xlsx --pdf report.pdf
+
+# one report per client from a full-account export: March only, Eid campaigns, no test campaigns
+meta-ads-report account.csv --since 2026-03-01 --until 2026-03-31 \
+  --campaign "Eid*" --exclude-campaign test -o eid-march.html
 
 # add breakdown exports (age/gender, placement, region) alongside the main export
 meta-ads-report main.csv age-gender.csv placement.csv -o report.html
@@ -63,6 +68,8 @@ If weasyprint is not installed (or its system libraries are missing) the HTML is
 | `--xlsx FILE`, `--pdf FILE` | extra exports |
 | `--metrics-csv FILE`, `--metrics-level {campaign,adset,ad,daily}` | write the computed metrics (spend, CTR, CPC, CPM, frequency, cost per result, ROAS) as a flat CSV, one row per campaign (default), ad set, ad or day; ready for Sheets, BI tools or scripts |
 | `--json FILE` | write a machine-readable JSON summary (see [JSON summary](#json-summary)) |
+| `--since DATE`, `--until DATE` | only include rows inside this date window (`YYYY-MM-DD`, inclusive); see [Filtering](#filtering) |
+| `--campaign PATTERN`, `--exclude-campaign PATTERN` | only include / leave out campaigns whose name matches; repeatable |
 | `--rules FILE.py` | load custom insight rules |
 | `--no-dedupe` | keep rows repeated across files |
 
@@ -89,9 +96,25 @@ thresholds:         # tune the insight rules
   frequency_warn: 3
   ctr_warn: 1
 disable_rules: [spend_concentration]
+filters:            # optional, same as --since/--until/--campaign/--exclude-campaign
+  since: 2026-03-01
+  until: 2026-03-31
+  campaigns: ["Eid*"]
+  exclude_campaigns: [test]
 ```
 
-Command line flags override the config file.
+Command line flags override the config file (each filter option separately).
+
+## Filtering
+
+Filters are applied to the rows before anything is added up, so totals, tables, charts, KPI targets, insights and the JSON summary all describe the filtered data. The report header says which filters were used, and the CLI prints how many rows were left out.
+
+- **Date window**: `--since` and `--until` are inclusive and either may be omitted. Rows are dated by the `Day` column, or by `Reporting starts` / `Reporting ends`. A row must lie entirely inside the window: a monthly row cannot be split into weeks, so it is left out when only part of it falls inside. Rows without a readable date are left out while a window is set. For a daily cut of a longer period, export with the `Day` breakdown.
+- **Campaign patterns** are case-insensitive. A pattern with `*`, `?` or `[` is a glob matched against the whole name (`Eid*`, `*Retargeting`); any other pattern matches anywhere in the name (`sale`). With several `--campaign` patterns a campaign needs to match one of them; `--exclude-campaign` wins over `--campaign`.
+- **With `--previous`** the campaign patterns are applied to the previous period as well, so the comparison covers the same campaigns. The date window only applies to the current period, because the previous export covers different dates.
+- If no row is left the tool stops with exit status 2 and an error naming the filters.
+
+From Python: `build_report(paths, row_filter=RowFilter.from_args(since="2026-03-01", campaigns=["Eid*"]))` with `RowFilter` from `meta_ads_report.filters`.
 
 ## Custom insight rules
 
@@ -141,7 +164,8 @@ jq -e '.targets_summary.failed == 0' summary.json > /dev/null || echo "KPI targe
 | --- | --- |
 | `schema_version` | integer, raised only when a key is renamed or removed |
 | `generator`, `generated`, `title`, `brand`, `currency` | report metadata |
-| `period`, `sources` | date range, number of files merged and duplicate rows dropped |
+| `period`, `sources` | date range, number of files merged, duplicate rows dropped and rows left out by filters (`rows_filtered`) |
+| `filters` | `null` without filters; otherwise `since`, `until`, `campaigns` and `exclude_campaigns` |
 | `totals` | spend, impressions, reach, clicks, results, purchases, ctr, cpc, cpm, cpa, frequency, roas |
 | `previous` | `null` without `--previous`; otherwise the previous period, its totals and `changes` per metric (`pct` plus `direction`: `better`, `worse` or `flat`, which accounts for lower-is-better metrics such as CPA) |
 | `targets`, `targets_summary` | each configured KPI target with `status` `pass`, `fail` or `n/a`, and the counts |
