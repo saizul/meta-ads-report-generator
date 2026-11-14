@@ -8,6 +8,7 @@ from typing import Dict, Iterable, List, Optional, Sequence, Tuple
 
 from .columns import BREAKDOWNS, NUMERIC_FIELDS, build_mapping, detect_currency, parse_number
 from .csvio import read_text, sniff_delimiter
+from .filters import RowFilter
 
 Row = Dict[str, object]
 
@@ -129,6 +130,8 @@ class Report:
     daily: List[Stats] = field(default_factory=list)
     breakdowns: Dict[str, List[Stats]] = field(default_factory=dict)
     previous: Optional[Comparison] = None
+    filters: Optional[RowFilter] = None
+    rows_filtered: int = 0
 
 
 _DIM_FIELDS = ("campaign", "adset", "ad", "start", "end", "day") + tuple(BREAKDOWNS)
@@ -237,14 +240,28 @@ def build_report(
     currency: Optional[str] = None,
     previous_paths: Optional[Sequence[str]] = None,
     dedupe: bool = True,
+    row_filter: Optional[RowFilter] = None,
 ) -> Report:
-    """Build a :class:`Report` from current (and optionally previous) exports."""
+    """Build a :class:`Report` from current (and optionally previous) exports.
+
+    ``row_filter`` keeps only rows inside a date window and/or matching
+    campaign patterns. The date window applies to the current period only;
+    campaign patterns apply to the previous period too, so the comparison
+    covers the same campaigns.
+    """
     ds = load_dataset(paths, dedupe)
+    rows_filtered = 0
+    if row_filter is not None and row_filter.active:
+        ds.rows, rows_filtered = row_filter.apply(ds.rows)
+        if not ds.rows:
+            raise ValueError(f"no rows match the filters ({row_filter.describe()})")
     core, by_dim = split_rows(ds.rows)
     rep = Report(
         currency=(currency or ds.currency or "USD").upper(),
         sources=ds.sources,
         duplicates_dropped=ds.duplicates_dropped,
+        filters=row_filter if row_filter is not None and row_filter.active else None,
+        rows_filtered=rows_filtered,
     )
     rep.start, rep.end = _dates(core)
     for r in core:
@@ -260,6 +277,8 @@ def build_report(
         rep.breakdowns[dim] = _group(rows, dim)
     if previous_paths:
         pds = load_dataset(previous_paths, dedupe)
+        if rep.filters is not None:
+            pds.rows, _ = rep.filters.apply(pds.rows, dates=False)
         pcore, _ = split_rows(pds.rows)
         ptotal = Stats("Previous total")
         for r in pcore:

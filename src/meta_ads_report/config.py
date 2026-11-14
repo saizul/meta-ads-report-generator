@@ -14,6 +14,11 @@ Example::
       frequency_warn: 3
       ctr_warn: 1
     disable_rules: [spend_concentration]
+    filters:
+      since: 2026-03-01
+      until: 2026-03-31
+      campaigns: ["Eid*"]
+      exclude_campaigns: [test]
 """
 from __future__ import annotations
 
@@ -22,6 +27,7 @@ from typing import Any, Dict, List, Optional
 
 import yaml
 
+from .filters import FilterError, RowFilter
 from .metrics import Stats
 
 #: target key -> (metric attribute, comparison, label)
@@ -60,6 +66,7 @@ class Config:
     thresholds: Dict[str, float] = field(default_factory=lambda: dict(DEFAULT_THRESHOLDS))
     disable_rules: List[str] = field(default_factory=list)
     top_n: int = 3
+    filters: RowFilter = field(default_factory=RowFilter)
 
 
 class ConfigError(ValueError):
@@ -75,7 +82,7 @@ def load_config(path: Optional[str]) -> Config:
         data: Any = yaml.safe_load(fh) or {}
     if not isinstance(data, dict):
         raise ConfigError("config root must be a mapping")
-    known = {"brand", "logo_text", "title", "currency", "theme", "targets", "thresholds", "disable_rules", "top_n"}
+    known = {"brand", "logo_text", "title", "currency", "theme", "targets", "thresholds", "disable_rules", "top_n", "filters"}
     unknown = set(data) - known
     if unknown:
         raise ConfigError(f"unknown config keys: {', '.join(sorted(unknown))}")
@@ -95,7 +102,42 @@ def load_config(path: Optional[str]) -> Config:
         raise ConfigError(f"unknown threshold(s): {', '.join(sorted(bad))}")
     cfg.thresholds.update({k: float(v) for k, v in thr.items()})
     cfg.disable_rules = list(data.get("disable_rules") or [])
+    cfg.filters = _load_filters(data.get("filters"))
     return cfg
+
+
+FILTER_KEYS = ("since", "until", "campaigns", "exclude_campaigns")
+
+
+def _pattern_list(value: Any, key: str) -> List[str]:
+    if value is None:
+        return []
+    if isinstance(value, str):
+        return [value]
+    if isinstance(value, list) and all(isinstance(v, (str, int, float)) for v in value):
+        return [str(v) for v in value]
+    raise ConfigError(f"filters.{key} must be a string or a list of strings")
+
+
+def _load_filters(data: Any) -> RowFilter:
+    """Parse the optional ``filters`` mapping."""
+    if data is None:
+        return RowFilter()
+    if not isinstance(data, dict):
+        raise ConfigError("filters must be a mapping")
+    bad = set(data) - set(FILTER_KEYS)
+    if bad:
+        raise ConfigError(f"unknown filter key(s): {', '.join(sorted(bad))}; valid: {', '.join(FILTER_KEYS)}")
+    try:
+        # YAML turns 2026-03-01 into a date already; quoted strings are parsed here
+        return RowFilter.from_args(
+            since=None if data.get("since") is None else str(data["since"]),
+            until=None if data.get("until") is None else str(data["until"]),
+            campaigns=_pattern_list(data.get("campaigns"), "campaigns"),
+            exclude_campaigns=_pattern_list(data.get("exclude_campaigns"), "exclude_campaigns"),
+        )
+    except FilterError as exc:
+        raise ConfigError(f"filters: {exc}") from exc
 
 
 def evaluate_target(stats: Stats, key: str, target: float) -> Dict[str, Any]:

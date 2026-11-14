@@ -65,13 +65,13 @@ def line_chart(
     for g in range(5):
         y = top + ph * g / 4
         parts.append(f'<line x1="{left}" x2="{w - right}" y1="{y:.1f}" y2="{y:.1f}" class="grid"/>')
-    for s, c in zip(series, colors):
+    for s, c in zip(series, colors, strict=False):
         m = max(s) or 1
         pts = " ".join(
             f"{left + pw * i / (len(s) - 1):.1f},{top + ph - (v / m) * ph:.1f}" for i, v in enumerate(s)
         )
         parts.append(f'<polyline points="{pts}" fill="none" stroke="{c}" stroke-width="2.2" stroke-linejoin="round"/>')
-    for k, (c, nm) in enumerate(zip(colors, names)):
+    for k, (c, nm) in enumerate(zip(colors, names, strict=False)):
         x = w - right - 170 + k * 85
         parts.append(f'<rect x="{x}" y="6" width="10" height="10" rx="2" fill="{c}"/>')
         parts.append(f'<text x="{x + 14}" y="15" class="chart-label">{escape(nm)}</text>')
